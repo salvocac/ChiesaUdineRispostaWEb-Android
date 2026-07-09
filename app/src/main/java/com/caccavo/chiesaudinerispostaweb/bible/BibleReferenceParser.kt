@@ -117,7 +117,7 @@ object BibleReferenceParser {
         }
 
         val rawBook = parts.joinToString(" ").trim()
-        if (rawBook.isEmpty) return null
+        if (rawBook.isEmpty()) return null
 
         var normalizedBook = rawBook
         val exactKey = normalizedBook.replace(".", "").replace(" ", "")
