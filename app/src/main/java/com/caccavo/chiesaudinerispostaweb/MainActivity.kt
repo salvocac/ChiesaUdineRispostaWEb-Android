@@ -12,6 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.caccavo.chiesaudinerispostaweb.ui.bible.BibleScreen
 import com.caccavo.chiesaudinerispostaweb.ui.common.ComingSoonScreen
+import com.caccavo.chiesaudinerispostaweb.ui.dailyverse.DailyVerseScreen
 import com.caccavo.chiesaudinerispostaweb.ui.home.HomeScreen
 
 private const val ROUTE_HOME = "home"
@@ -40,7 +41,7 @@ class MainActivity : ComponentActivity() {
                             BibleScreen(onClose = { navController.popBackStack() })
                         }
                         composable(ROUTE_DAILY_VERSE) {
-                            ComingSoonScreen("Versetto del giorno") { navController.popBackStack() }
+                            DailyVerseScreen(onClose = { navController.popBackStack() })
                         }
                         composable(ROUTE_AUDIO_SETTINGS) {
                             ComingSoonScreen("Audio Bibbia") { navController.popBackStack() }
