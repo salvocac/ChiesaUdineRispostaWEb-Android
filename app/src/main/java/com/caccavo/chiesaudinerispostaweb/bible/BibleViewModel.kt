@@ -163,17 +163,17 @@ class BibleViewModel(application: Application) : AndroidViewModel(application) {
         selectChapter(chapters[currentIndex + 1])
     }
 
-    fun setStartVerse(verse: Int) {
+    fun updateStartVerse(verse: Int) {
         startVerse = verse
         refreshRangeData()
     }
 
-    fun setEndVerse(verse: Int) {
+    fun updateEndVerse(verse: Int) {
         endVerse = verse
         refreshRangeData()
     }
 
-    fun setSearchText(text: String) {
+    fun updateSearchText(text: String) {
         searchText = text
         if (text.isBlank()) {
             searchResultsCache = emptyList()

@@ -106,7 +106,7 @@ fun BibleScreen(
 
                     SearchField(
                         text = viewModel.searchText,
-                        onTextChange = viewModel::setSearchText,
+                        onTextChange = viewModel::updateSearchText,
                         onSearch = viewModel::performSearch
                     )
 
@@ -141,8 +141,8 @@ fun BibleScreen(
                         onChapterSelected = viewModel::selectChapter,
                         onChapterBack = viewModel::moveChapterBackward,
                         onChapterForward = viewModel::moveChapterForward,
-                        onStartVerseSelected = viewModel::setStartVerse,
-                        onEndVerseSelected = viewModel::setEndVerse,
+                        onStartVerseSelected = viewModel::updateStartVerse,
+                        onEndVerseSelected = viewModel::updateEndVerse,
                         onSearch = viewModel::performVerseSearch
                     )
 
