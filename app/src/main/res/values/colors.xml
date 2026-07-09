@@ -1,0 +1,5 @@
+<resources>
+    <color name="chiesa_accent">#2B6CB0</color>
+    <color name="chiesa_background_light">#FFFFFF</color>
+    <color name="chiesa_background_dark">#121212</color>
+</resources>
