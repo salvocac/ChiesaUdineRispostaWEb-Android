@@ -54,8 +54,10 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material:material-icons-extended")
     implementation("androidx.navigation:navigation-compose:2.7.7")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.3")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
 
     // Riproduzione audio (versetti narrati)
