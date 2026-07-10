@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.caccavo.chiesaudinerispostaweb.ui.audio.AudioSettingsScreen
 import com.caccavo.chiesaudinerispostaweb.ui.bible.BibleScreen
 import com.caccavo.chiesaudinerispostaweb.ui.common.ComingSoonScreen
 import com.caccavo.chiesaudinerispostaweb.ui.dailyverse.DailyVerseScreen
@@ -44,7 +45,7 @@ class MainActivity : ComponentActivity() {
                             DailyVerseScreen(onClose = { navController.popBackStack() })
                         }
                         composable(ROUTE_AUDIO_SETTINGS) {
-                            ComingSoonScreen("Audio Bibbia") { navController.popBackStack() }
+                            AudioSettingsScreen(onClose = { navController.popBackStack() })
                         }
                         composable(ROUTE_USER_GUIDE) {
                             ComingSoonScreen("Guida all'uso dell'app") { navController.popBackStack() }

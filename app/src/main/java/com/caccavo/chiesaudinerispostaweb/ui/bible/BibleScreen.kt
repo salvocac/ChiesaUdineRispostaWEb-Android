@@ -21,6 +21,7 @@ import androidx.compose.material.icons.filled.PlayCircle
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.VolumeOff
 import androidx.compose.material.icons.filled.StopCircle
+import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -33,11 +34,14 @@ import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.caccavo.chiesaudinerispostaweb.audio.BibleAudioManager
 import com.caccavo.chiesaudinerispostaweb.bible.BibleTranslation
 import com.caccavo.chiesaudinerispostaweb.bible.BibleViewModel
 
@@ -47,6 +51,8 @@ fun BibleScreen(
     onClose: () -> Unit,
     viewModel: BibleViewModel = viewModel()
 ) {
+    val context = LocalContext.current
+    val audioManager = remember { BibleAudioManager.getInstance(context) }
     val readerPayload = viewModel.readerPayload
 
     if (readerPayload != null) {
@@ -102,6 +108,25 @@ fun BibleScreen(
                         .padding(padding)
                         .padding(horizontal = 16.dp)
                 ) {
+                    if (audioManager.hasSavedReading) {
+                        Button(
+                            onClick = {
+                                audioManager.resumeLastReading(viewModel.allVerses())
+                                viewModel.openReader(
+                                    title = audioManager.currentReadingTitle,
+                                    verses = audioManager.currentReadingVerses,
+                                    isSearchResult = false,
+                                    followsAudio = true
+                                )
+                            },
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(bottom = 6.dp)
+                        ) {
+                            Text("Riprendi da ${audioManager.savedReadingDescription}")
+                        }
+                    }
+
                     Spacer(Modifier.height(8.dp))
 
                     SearchField(
@@ -150,6 +175,8 @@ fun BibleScreen(
 
                     if (viewModel.selectedTranslation.hasAudio) {
                         BibleAudioActionBar(
+                            isPaused = audioManager.isPaused,
+                            isSpeaking = audioManager.isSpeaking,
                             onSpeak = {
                                 val title = if (viewModel.startVerse == viewModel.endVerse) {
                                     "${viewModel.selectedBook} ${viewModel.selectedChapter}:${viewModel.startVerse}"
@@ -159,9 +186,21 @@ fun BibleScreen(
                                 viewModel.openReader(
                                     title = title,
                                     verses = viewModel.currentRangeVerses,
-                                    isSearchResult = false
+                                    isSearchResult = false,
+                                    followsAudio = true
                                 )
-                            }
+                                audioManager.speakContinuously(
+                                    bookName = viewModel.selectedBook,
+                                    chapter = viewModel.selectedChapter,
+                                    startVerse = viewModel.startVerse,
+                                    endVerse = viewModel.endVerse,
+                                    allVerses = viewModel.allVerses()
+                                )
+                            },
+                            onPauseResume = {
+                                if (audioManager.isPaused) audioManager.resume() else audioManager.pause()
+                            },
+                            onStop = { audioManager.stop() }
                         )
                     } else {
                         Row(
@@ -288,14 +327,24 @@ private fun ChapterVersePickerBar(
 }
 
 @Composable
-private fun BibleAudioActionBar(onSpeak: () -> Unit) {
+private fun BibleAudioActionBar(
+    isPaused: Boolean,
+    isSpeaking: Boolean,
+    onSpeak: () -> Unit,
+    onPauseResume: () -> Unit,
+    onStop: () -> Unit
+) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
         AudioActionButton(icon = Icons.Filled.PlayCircle, label = "Ascolta", onClick = onSpeak)
-        AudioActionButton(icon = Icons.Filled.PauseCircle, label = "Pausa", onClick = {})
-        AudioActionButton(icon = Icons.Filled.StopCircle, label = "Stop", onClick = {})
+        AudioActionButton(
+            icon = if (isPaused) Icons.Filled.PlayCircle else Icons.Filled.PauseCircle,
+            label = if (isPaused) "Riprendi" else "Pausa",
+            onClick = onPauseResume
+        )
+        AudioActionButton(icon = Icons.Filled.StopCircle, label = "Stop", onClick = onStop)
     }
 }
 

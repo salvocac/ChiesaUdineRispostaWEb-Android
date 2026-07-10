@@ -23,6 +23,7 @@ import androidx.compose.material.icons.filled.Videocam
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -38,6 +39,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.caccavo.chiesaudinerispostaweb.audio.BibleAudioManager
 import com.caccavo.chiesaudinerispostaweb.dailyverse.DailyVerseViewModel
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -50,6 +52,7 @@ fun DailyVerseScreen(
     viewModel: DailyVerseViewModel = viewModel()
 ) {
     val context = LocalContext.current
+    val audioManager = remember { BibleAudioManager.getInstance(context) }
     val verse = viewModel.dailyVerse
     val dateFormatter = remember { DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.ITALIAN) }
 
@@ -96,7 +99,10 @@ fun DailyVerseScreen(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                IconButton(onClick = viewModel::goToPreviousDay, enabled = viewModel.canGoToPreviousDay) {
+                IconButton(
+                    onClick = { audioManager.stop(); viewModel.goToPreviousDay() },
+                    enabled = viewModel.canGoToPreviousDay
+                ) {
                     Icon(Icons.Filled.ChevronLeft, contentDescription = "Giorno precedente")
                 }
 
@@ -104,7 +110,10 @@ fun DailyVerseScreen(
                     Text(viewModel.selectedDate.format(dateFormatter))
                 }
 
-                IconButton(onClick = viewModel::goToNextDay, enabled = viewModel.canGoToNextDay) {
+                IconButton(
+                    onClick = { audioManager.stop(); viewModel.goToNextDay() },
+                    enabled = viewModel.canGoToNextDay
+                ) {
                     Icon(Icons.Filled.ChevronRight, contentDescription = "Giorno successivo")
                 }
             }
@@ -141,21 +150,31 @@ fun DailyVerseScreen(
                 Spacer(Modifier.height(20.dp))
 
                 Row(horizontalArrangement = Arrangement.spacedBy(48.dp)) {
-                    IconButton(onClick = {}, enabled = false) {
+                    IconButton(onClick = { audioManager.speak(verse) }) {
                         Icon(Icons.Filled.PlayArrow, contentDescription = "Ascolta")
                     }
-                    IconButton(onClick = {}, enabled = false) {
+                    IconButton(onClick = { audioManager.stop() }, enabled = audioManager.isSpeaking) {
                         Icon(Icons.Filled.Stop, contentDescription = "Stop")
                     }
                 }
 
-                Spacer(Modifier.height(4.dp))
-                Text(
-                    "L'ascolto audio arriverà in un prossimo aggiornamento.",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    textAlign = TextAlign.Center
-                )
+                if (audioManager.isSpeaking) {
+                    Spacer(Modifier.height(4.dp))
+                    LinearProgressIndicator(
+                        progress = audioManager.playbackProgress,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+
+                if (audioManager.lastError.isNotEmpty()) {
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        audioManager.lastError,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.error,
+                        textAlign = TextAlign.Center
+                    )
+                }
 
                 Spacer(Modifier.height(16.dp))
 
