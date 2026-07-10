@@ -12,6 +12,8 @@ import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
 import com.caccavo.chiesaudinerispostaweb.bible.BibleVerse
 import com.caccavo.chiesaudinerispostaweb.dailyverse.DailyVerse
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -29,6 +31,7 @@ private const val AUDIO_BASE_URL = "https://pub-44310709cc6e4e4cb1a8d3f21dcac883
 private const val PREFS_NAME = "bible_audio_history"
 private const val KEY_AUDIO_ID = "lastBibleAudioID"
 private const val KEY_ELAPSED = "lastBibleAudioElapsed"
+private const val KEY_INSTALLED_VERSIONS = "installedAudioVersions"
 
 private data class ChapterPlayback(
     val bookName: String,
@@ -55,6 +58,55 @@ class BibleAudioManager private constructor(context: Context) {
         File(appContext.cacheDir, "BibleAudio").apply { mkdirs() }
     }
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
+    private val gson = Gson()
+
+    /** Scaricato una sola volta per avvio dell'app (null finché non è stato tentato). */
+    private var remoteAudioVersions: Map<String, String>? = null
+
+    /** Versione installata localmente per ogni audioId già scaricato: permette di accorgersi
+     * che un file è stato ri-pubblicato (es. audio corretto) e vada riscaricato, invece di
+     * fidarsi per sempre della prima copia in cache. */
+    private val installedAudioVersions: MutableMap<String, String> by lazy { loadInstalledVersions() }
+
+    private fun loadInstalledVersions(): MutableMap<String, String> {
+        val json = prefs.getString(KEY_INSTALLED_VERSIONS, null) ?: return mutableMapOf()
+        return try {
+            val type = object : TypeToken<MutableMap<String, String>>() {}.type
+            gson.fromJson(json, type) ?: mutableMapOf()
+        } catch (e: Exception) {
+            mutableMapOf()
+        }
+    }
+
+    private fun saveInstalledVersions() {
+        prefs.edit().putString(KEY_INSTALLED_VERSIONS, gson.toJson(installedAudioVersions)).apply()
+    }
+
+    /** Manifest remoto: se non è raggiungibile (offline, rete assente) si ignora
+     * l'invalidazione e si usa la cache locale così com'è. */
+    private suspend fun fetchRemoteAudioVersions(): Map<String, String> {
+        remoteAudioVersions?.let { return it }
+        return withContext(Dispatchers.IO) {
+            val fetched = try {
+                val connection = URL("$AUDIO_BASE_URL/audio-versions.json").openConnection() as HttpURLConnection
+                connection.connectTimeout = 8_000
+                connection.readTimeout = 8_000
+                connection.connect()
+                if (connection.responseCode == 200) {
+                    val body = connection.inputStream.bufferedReader().use { it.readText() }
+                    val type = object : TypeToken<Map<String, String>>() {}.type
+                    gson.fromJson<Map<String, String>>(body, type) ?: emptyMap()
+                } else {
+                    emptyMap()
+                }
+            } catch (e: Exception) {
+                Log.w(TAG, "Manifest versioni audio non raggiungibile", e)
+                emptyMap()
+            }
+            remoteAudioVersions = fetched
+            fetched
+        }
+    }
 
     var isSpeaking by mutableStateOf(false)
         private set
@@ -461,30 +513,67 @@ class BibleAudioManager private constructor(context: Context) {
         return if (file.exists()) file else null
     }
 
-    private suspend fun ensureCached(audioIds: List<String>) = withContext(Dispatchers.IO) {
-        for (audioId in audioIds.distinct()) {
-            val destination = File(cacheDir, "$audioId.mp3")
-            if (destination.exists()) continue
+    /** Scarica gli audio non ancora in cache locale, o la cui versione nel manifest remoto è
+     * cambiata rispetto a quella scaricata l'ultima volta (es. un audio corretto e
+     * ripubblicato): senza questo controllo, una volta scaricato un file non veniva più
+     * aggiornato anche pubblicando una versione nuova sul server. */
+    private suspend fun ensureCached(audioIds: List<String>) {
+        val remoteVersions = fetchRemoteAudioVersions()
+        var didUpdateInstalledVersions = false
 
-            try {
-                val connection = URL("$AUDIO_BASE_URL/$audioId.mp3").openConnection() as HttpURLConnection
-                connection.connectTimeout = 10_000
-                connection.readTimeout = 15_000
-                connection.connect()
-                if (connection.responseCode != 200) {
+        withContext(Dispatchers.IO) {
+            for (audioId in audioIds.distinct()) {
+                val destination = File(cacheDir, "$audioId.mp3")
+                val remoteVersion = remoteVersions[audioId]
+                val isUpToDate = destination.exists() &&
+                    (remoteVersion == null || remoteVersion == installedAudioVersions[audioId])
+                if (isUpToDate) continue
+
+                try {
+                    val connection = URL("$AUDIO_BASE_URL/$audioId.mp3").openConnection() as HttpURLConnection
+                    connection.connectTimeout = 10_000
+                    connection.readTimeout = 15_000
+                    connection.connect()
+                    if (connection.responseCode != 200) {
+                        connection.disconnect()
+                        continue
+                    }
+                    val tempFile = File(cacheDir, "$audioId.mp3.tmp")
+                    connection.inputStream.use { input ->
+                        tempFile.outputStream().use { output -> input.copyTo(output) }
+                    }
                     connection.disconnect()
-                    continue
+                    destination.delete()
+                    tempFile.renameTo(destination)
+
+                    if (remoteVersion != null) {
+                        installedAudioVersions[audioId] = remoteVersion
+                    } else {
+                        installedAudioVersions.remove(audioId)
+                    }
+                    didUpdateInstalledVersions = true
+                } catch (e: Exception) {
+                    Log.w(TAG, "Audio non disponibile: $audioId", e)
                 }
-                val tempFile = File(cacheDir, "$audioId.mp3.tmp")
-                connection.inputStream.use { input ->
-                    tempFile.outputStream().use { output -> input.copyTo(output) }
-                }
-                connection.disconnect()
-                tempFile.renameTo(destination)
-            } catch (e: Exception) {
-                Log.w(TAG, "Audio non disponibile: $audioId", e)
             }
         }
+
+        if (didUpdateInstalledVersions) {
+            saveInstalledVersions()
+        }
+    }
+
+    /** Cancella tutti gli audio scaricati e la loro cronologia versioni: il prossimo ascolto
+     * li riscarica da zero. Utile per forzare l'aggiornamento subito dopo aver ripubblicato un
+     * audio, senza aspettare che il manifest remoto venga controllato/aggiornato. */
+    suspend fun clearCache() {
+        stop()
+        withContext(Dispatchers.IO) {
+            cacheDir.listFiles()?.forEach { it.delete() }
+        }
+        installedAudioVersions.clear()
+        saveInstalledVersions()
+        remoteAudioVersions = null
     }
 
     private fun continuousChapters(

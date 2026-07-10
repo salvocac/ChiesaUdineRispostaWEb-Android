@@ -1,3 +1,9 @@
 <resources>
     <style name="Theme.ChiesaUdineRispostaWeb" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/chiesa_splash_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.ChiesaUdineRispostaWeb</item>
+    </style>
 </resources>
