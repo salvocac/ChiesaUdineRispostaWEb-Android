@@ -188,8 +188,15 @@ class BibleViewModel(application: Application) : AndroidViewModel(application) {
         val resolvedBook = ref?.let { resolveBookName(it.book) }
 
         if (ref != null && resolvedBook != null && applyReferenceSelection(resolvedBook, ref.chapter, ref.verse)) {
-            // Libro/capitolo/versetto restano selezionati nella pagina principale,
-            // così l'utente sceglie se ascoltare o leggere.
+            // Libro/capitolo/versetto restano selezionati nella pagina principale, e si apre
+            // subito la lettura: altrimenti l'utente non vede nessun risultato visibile e
+            // pensa che la ricerca per riferimento non funzioni.
+            val title = if (startVerse == endVerse) {
+                "$selectedBook $selectedChapter:$startVerse"
+            } else {
+                "$selectedBook $selectedChapter:$startVerse-$endVerse"
+            }
+            openReader(title = title, verses = currentRangeVerses, isSearchResult = false)
         } else {
             runTextSearch(query)
             openReader(

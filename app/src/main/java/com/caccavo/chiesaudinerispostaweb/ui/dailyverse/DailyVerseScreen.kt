@@ -142,7 +142,7 @@ fun DailyVerseScreen(
         statusMessage = null
         makeVideo(dailyVerse) { file ->
             val saved = ShareUtils.saveVideoToGallery(context, file, "versetto-del-giorno-${dailyVerse.day ?: 0}.mp4")
-            statusMessage = if (saved) "Video salvato in Galleria." else "Non sono riuscito a salvare il video (serve Android 10 o superiore)."
+            statusMessage = if (saved) "Video salvato in Galleria." else "Non sono riuscito a salvare il video."
         }
     }
 

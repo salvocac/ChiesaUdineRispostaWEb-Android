@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.caccavo.chiesaudinerispostaweb"
-        minSdk = 26
+        minSdk = 29
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"

@@ -3,9 +3,13 @@ package com.caccavo.chiesaudinerispostaweb
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.Surface
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -28,27 +32,33 @@ class MainActivity : ComponentActivity() {
         setContent {
             ChiesaTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    val navController = rememberNavController()
-                    NavHost(navController = navController, startDestination = ROUTE_HOME) {
-                        composable(ROUTE_HOME) {
-                            HomeScreen(
-                                onOpenDailyVerse = { navController.navigate(ROUTE_DAILY_VERSE) },
-                                onOpenBible = { navController.navigate(ROUTE_BIBLE) },
-                                onOpenAudioSettings = { navController.navigate(ROUTE_AUDIO_SETTINGS) },
-                                onOpenUserGuide = { navController.navigate(ROUTE_USER_GUIDE) }
-                            )
-                        }
-                        composable(ROUTE_BIBLE) {
-                            BibleScreen(onClose = { navController.popBackStack() })
-                        }
-                        composable(ROUTE_DAILY_VERSE) {
-                            DailyVerseScreen(onClose = { navController.popBackStack() })
-                        }
-                        composable(ROUTE_AUDIO_SETTINGS) {
-                            AudioSettingsScreen(onClose = { navController.popBackStack() })
-                        }
-                        composable(ROUTE_USER_GUIDE) {
-                            UserGuideScreen(onClose = { navController.popBackStack() })
+                    // Su tablet/schermi larghi il contenuto resta leggibile in una colonna
+                    // centrata invece di stirarsi da un bordo all'altro dello schermo.
+                    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.TopCenter) {
+                        Box(modifier = Modifier.widthIn(max = 600.dp).fillMaxSize()) {
+                            val navController = rememberNavController()
+                            NavHost(navController = navController, startDestination = ROUTE_HOME) {
+                                composable(ROUTE_HOME) {
+                                    HomeScreen(
+                                        onOpenDailyVerse = { navController.navigate(ROUTE_DAILY_VERSE) },
+                                        onOpenBible = { navController.navigate(ROUTE_BIBLE) },
+                                        onOpenAudioSettings = { navController.navigate(ROUTE_AUDIO_SETTINGS) },
+                                        onOpenUserGuide = { navController.navigate(ROUTE_USER_GUIDE) }
+                                    )
+                                }
+                                composable(ROUTE_BIBLE) {
+                                    BibleScreen(onClose = { navController.popBackStack() })
+                                }
+                                composable(ROUTE_DAILY_VERSE) {
+                                    DailyVerseScreen(onClose = { navController.popBackStack() })
+                                }
+                                composable(ROUTE_AUDIO_SETTINGS) {
+                                    AudioSettingsScreen(onClose = { navController.popBackStack() })
+                                }
+                                composable(ROUTE_USER_GUIDE) {
+                                    UserGuideScreen(onClose = { navController.popBackStack() })
+                                }
+                            }
                         }
                     }
                 }

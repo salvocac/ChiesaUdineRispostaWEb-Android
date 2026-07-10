@@ -2,6 +2,8 @@ package com.caccavo.chiesaudinerispostaweb.ui.bible
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -43,6 +45,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.caccavo.chiesaudinerispostaweb.audio.BibleAudioManager
@@ -264,8 +267,10 @@ private fun SearchField(
             value = text,
             onValueChange = onTextChange,
             modifier = Modifier.weight(1f),
-            placeholder = { Text("Cerca una parola nella Bibbia...") },
+            placeholder = { Text("Cerca una parola o un riferimento (es. Giovanni 3:16)...") },
             singleLine = true,
+            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+            keyboardActions = KeyboardActions(onSearch = { onSearch() }),
             colors = TextFieldDefaults.colors(
                 focusedContainerColor = Color.Transparent,
                 unfocusedContainerColor = Color.Transparent,

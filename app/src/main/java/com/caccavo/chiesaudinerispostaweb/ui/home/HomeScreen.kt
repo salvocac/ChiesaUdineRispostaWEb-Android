@@ -95,7 +95,7 @@ fun HomeScreen(
                 icon = Icons.Filled.MenuBook,
                 text = "Apri Bibbia",
                 containerColor = MaterialTheme.colorScheme.primary,
-                contentColor = Color.Black,
+                contentColor = Color.White,
                 onClick = onOpenBible
             )
 

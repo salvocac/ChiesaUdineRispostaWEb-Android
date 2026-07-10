@@ -4,7 +4,6 @@ import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.os.Build
 import android.provider.MediaStore
 import androidx.core.content.FileProvider
 import java.io.File
@@ -35,12 +34,8 @@ object ShareUtils {
         context.startActivity(Intent.createChooser(intent, chooserTitle))
     }
 
-    /** Salva un video mp4 nella galleria (cartella Movies) tramite MediaStore. Richiede
-     * Android 10+: sulle versioni precedenti servirebbe il permesso di scrittura storage
-     * legacy, non gestito qui — in quel caso si può comunque usare "Condividi". */
+    /** Salva un video mp4 nella galleria (cartella Movies) tramite MediaStore. */
     fun saveVideoToGallery(context: Context, videoFile: File, displayName: String): Boolean {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) return false
-
         val values = ContentValues().apply {
             put(MediaStore.Video.Media.DISPLAY_NAME, displayName)
             put(MediaStore.Video.Media.MIME_TYPE, "video/mp4")
