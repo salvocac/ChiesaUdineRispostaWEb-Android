@@ -16,10 +16,20 @@ android {
         versionName = "1.0"
     }
 
+    signingConfigs {
+        create("release") {
+            storeFile = rootProject.file(project.findProperty("KEYSTORE_FILE") as? String ?: "keystore/chiesa-key.jks")
+            storePassword = project.findProperty("KEYSTORE_PASSWORD") as? String
+            keyAlias = project.findProperty("KEY_ALIAS") as? String
+            keyPassword = project.findProperty("KEY_PASSWORD") as? String
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfig = signingConfigs.getByName("release")
         }
     }
 
