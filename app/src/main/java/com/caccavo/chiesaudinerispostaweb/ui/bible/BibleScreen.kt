@@ -1,6 +1,8 @@
 package com.caccavo.chiesaudinerispostaweb.ui.bible
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -109,6 +111,7 @@ fun BibleScreen(
                         .fillMaxSize()
                         .padding(padding)
                         .padding(horizontal = 16.dp)
+                        .verticalScroll(rememberScrollState())
                 ) {
                     if (audioManager.hasSavedReading) {
                         Button(
@@ -292,47 +295,53 @@ private fun ChapterVersePickerBar(
     onEndVerseSelected: (Int) -> Unit,
     onSearch: () -> Unit
 ) {
-    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-        IconButton(onClick = onChapterBack) {
-            Icon(Icons.Filled.ChevronLeft, contentDescription = "Capitolo precedente")
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            IconButton(onClick = onChapterBack) {
+                Icon(Icons.Filled.ChevronLeft, contentDescription = "Capitolo precedente")
+            }
+
+            Column {
+                Text("Cap.", style = MaterialTheme.typography.labelSmall)
+                SimpleDropdownSelector(
+                    label = { it.toString() },
+                    options = chapters,
+                    selected = selectedChapter,
+                    onSelected = onChapterSelected
+                )
+            }
+
+            IconButton(onClick = onChapterForward) {
+                Icon(Icons.Filled.ChevronRight, contentDescription = "Capitolo successivo")
+            }
         }
 
-        Column {
-            Text("Cap.", style = MaterialTheme.typography.labelSmall)
-            SimpleDropdownSelector(
-                label = { it.toString() },
-                options = chapters,
-                selected = selectedChapter,
-                onSelected = onChapterSelected
-            )
-        }
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            Column {
+                Text("Da", style = MaterialTheme.typography.labelSmall)
+                SimpleDropdownSelector(
+                    label = { it.toString() },
+                    options = verseNumbers,
+                    selected = startVerse,
+                    onSelected = onStartVerseSelected
+                )
+            }
 
-        IconButton(onClick = onChapterForward) {
-            Icon(Icons.Filled.ChevronRight, contentDescription = "Capitolo successivo")
-        }
+            Column {
+                Text("A", style = MaterialTheme.typography.labelSmall)
+                SimpleDropdownSelector(
+                    label = { it.toString() },
+                    options = verseNumbers,
+                    selected = endVerse,
+                    onSelected = onEndVerseSelected
+                )
+            }
 
-        Column {
-            Text("Da", style = MaterialTheme.typography.labelSmall)
-            SimpleDropdownSelector(
-                label = { it.toString() },
-                options = verseNumbers,
-                selected = startVerse,
-                onSelected = onStartVerseSelected
-            )
-        }
+            Spacer(Modifier.width(8.dp))
 
-        Column {
-            Text("A", style = MaterialTheme.typography.labelSmall)
-            SimpleDropdownSelector(
-                label = { it.toString() },
-                options = verseNumbers,
-                selected = endVerse,
-                onSelected = onEndVerseSelected
-            )
-        }
-
-        TextButton(onClick = onSearch) {
-            Text("Cerca")
+            Button(onClick = onSearch) {
+                Text("Cerca")
+            }
         }
     }
 }
