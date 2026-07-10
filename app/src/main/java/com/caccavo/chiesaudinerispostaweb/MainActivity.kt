@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
@@ -15,6 +14,7 @@ import com.caccavo.chiesaudinerispostaweb.ui.bible.BibleScreen
 import com.caccavo.chiesaudinerispostaweb.ui.dailyverse.DailyVerseScreen
 import com.caccavo.chiesaudinerispostaweb.ui.guide.UserGuideScreen
 import com.caccavo.chiesaudinerispostaweb.ui.home.HomeScreen
+import com.caccavo.chiesaudinerispostaweb.ui.theme.ChiesaTheme
 
 private const val ROUTE_HOME = "home"
 private const val ROUTE_BIBLE = "bible"
@@ -26,7 +26,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MaterialTheme {
+            ChiesaTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
                     val navController = rememberNavController()
                     NavHost(navController = navController, startDestination = ROUTE_HOME) {
