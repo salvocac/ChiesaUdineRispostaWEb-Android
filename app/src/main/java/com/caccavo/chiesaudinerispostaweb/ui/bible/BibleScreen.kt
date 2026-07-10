@@ -46,6 +46,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.caccavo.chiesaudinerispostaweb.audio.BibleAudioManager
@@ -145,23 +146,21 @@ fun BibleScreen(
 
                     Spacer(Modifier.height(8.dp))
 
-                    SimpleDropdownSelector(
-                        label = { it.displayName },
-                        options = BibleTranslation.entries,
-                        selected = viewModel.selectedTranslation,
-                        onSelected = viewModel::selectTranslation,
-                        modifier = Modifier.fillMaxWidth()
-                    )
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        SimpleDropdownSelector(
+                            label = { it.displayName },
+                            options = BibleTranslation.entries,
+                            selected = viewModel.selectedTranslation,
+                            onSelected = viewModel::selectTranslation
+                        )
 
-                    Spacer(Modifier.height(8.dp))
-
-                    SimpleDropdownSelector(
-                        label = { it },
-                        options = viewModel.bookNames,
-                        selected = viewModel.selectedBook,
-                        onSelected = viewModel::selectBook,
-                        modifier = Modifier.fillMaxWidth()
-                    )
+                        SimpleDropdownSelector(
+                            label = { it },
+                            options = viewModel.bookNames,
+                            selected = viewModel.selectedBook,
+                            onSelected = viewModel::selectBook
+                        )
+                    }
 
                     Spacer(Modifier.height(8.dp))
 
@@ -267,7 +266,13 @@ private fun SearchField(
             value = text,
             onValueChange = onTextChange,
             modifier = Modifier.weight(1f),
-            placeholder = { Text("Cerca una parola o un riferimento (es. Giovanni 3:16)...") },
+            placeholder = {
+                Text(
+                    "Cerca parola o riferimento (Gv 3:16)",
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+            },
             singleLine = true,
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
             keyboardActions = KeyboardActions(onSearch = { onSearch() }),

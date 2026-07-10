@@ -2,7 +2,9 @@ package com.caccavo.chiesaudinerispostaweb.ui.bible
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
@@ -19,6 +21,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.foundation.layout.Row
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -38,10 +41,11 @@ fun <T> SimpleDropdownSelector(
                 MaterialTheme.colorScheme.surfaceVariant,
                 RoundedCornerShape(10.dp)
             )
-            .padding(horizontal = 10.dp, vertical = 8.dp),
+            .padding(horizontal = 10.dp, vertical = 6.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(text = label(selected), modifier = Modifier.weight(1f))
+        Text(text = label(selected), maxLines = 1, overflow = TextOverflow.Ellipsis)
+        Spacer(Modifier.width(4.dp))
         Icon(Icons.Filled.ArrowDropDown, contentDescription = null)
     }
 
