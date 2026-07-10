@@ -114,7 +114,7 @@ object VerseVideoFactory {
         background: VideoBackground,
         outputFile: File
     ): File? {
-        val durationSeconds = AudioCombiner.durationSeconds(audioFile)
+        val durationSeconds = withContext(Dispatchers.IO) { AudioCombiner.durationSeconds(audioFile) }
         if (durationSeconds <= 0.0) return null
 
         val bitmap = renderCardBitmap(context, reference, body, background)
