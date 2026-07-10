@@ -16,6 +16,7 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.ChevronLeft
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Download
+import androidx.compose.material.icons.filled.HourglassEmpty
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Stop
@@ -30,9 +31,14 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -40,10 +46,23 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.caccavo.chiesaudinerispostaweb.audio.BibleAudioManager
+import com.caccavo.chiesaudinerispostaweb.dailyverse.DailyVerse
 import com.caccavo.chiesaudinerispostaweb.dailyverse.DailyVerseViewModel
+import com.caccavo.chiesaudinerispostaweb.share.ShareUtils
+import com.caccavo.chiesaudinerispostaweb.video.AudioCombiner
+import com.caccavo.chiesaudinerispostaweb.video.VerseVideoFactory
+import com.caccavo.chiesaudinerispostaweb.video.VideoBackground
+import kotlinx.coroutines.launch
+import java.io.File
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
+
+private fun DailyVerse.candidateAudioIds(): List<String> = buildList {
+    titleAudioID?.let { add(it) }
+    addAll(audioIDs.orEmpty())
+    commentAudioID?.let { add(it) }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -53,8 +72,79 @@ fun DailyVerseScreen(
 ) {
     val context = LocalContext.current
     val audioManager = remember { BibleAudioManager.getInstance(context) }
+    val scope = rememberCoroutineScope()
     val verse = viewModel.dailyVerse
     val dateFormatter = remember { DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.ITALIAN) }
+
+    var isPreparingAudio by remember { mutableStateOf(false) }
+    var isPreparingVideo by remember { mutableStateOf(false) }
+    var isSavingVideo by remember { mutableStateOf(false) }
+    var statusMessage by remember { mutableStateOf<String?>(null) }
+
+    suspend fun combinedAudioFile(dailyVerse: DailyVerse): File? {
+        val files = audioManager.prepareAudioFiles(dailyVerse.candidateAudioIds())
+        if (files.isEmpty()) return null
+        val output = File(context.cacheDir, "versetto-del-giorno-${dailyVerse.day ?: 0}.mp3")
+        return AudioCombiner.combine(context, files, output)
+    }
+
+    fun shareAudio(dailyVerse: DailyVerse) {
+        if (isPreparingAudio) return
+        isPreparingAudio = true
+        statusMessage = null
+        scope.launch {
+            val file = combinedAudioFile(dailyVerse)
+            isPreparingAudio = false
+            if (file == null) {
+                statusMessage = "Audio del versetto del giorno non disponibile."
+                return@launch
+            }
+            ShareUtils.shareFile(context, file, "audio/mpeg", "Invia audio versetto", dailyVerse.reference)
+        }
+    }
+
+    fun makeVideo(dailyVerse: DailyVerse, onReady: (File) -> Unit) {
+        val reference = dailyVerse.reference ?: "Versetto del giorno"
+        val body = listOfNotNull(dailyVerse.verseText, dailyVerse.reflection).joinToString("\n\n")
+        val background = VideoBackground.forIndex(dailyVerse.day ?: 0)
+        scope.launch {
+            val audioFile = combinedAudioFile(dailyVerse)
+            if (audioFile == null) {
+                statusMessage = "Audio del versetto del giorno non disponibile."
+                isPreparingVideo = false
+                isSavingVideo = false
+                return@launch
+            }
+            val outputFile = File(context.cacheDir, "versetto-del-giorno-video-${dailyVerse.day ?: 0}.mp4")
+            val videoFile = VerseVideoFactory.makeVideo(context, reference, body, audioFile, background, outputFile)
+            isPreparingVideo = false
+            isSavingVideo = false
+            if (videoFile == null) {
+                statusMessage = "Non sono riuscito a creare il video."
+            } else {
+                onReady(videoFile)
+            }
+        }
+    }
+
+    fun shareVideo(dailyVerse: DailyVerse) {
+        if (isPreparingVideo) return
+        isPreparingVideo = true
+        statusMessage = null
+        makeVideo(dailyVerse) { file ->
+            ShareUtils.shareFile(context, file, "video/mp4", "Invia video versetto")
+        }
+    }
+
+    fun saveVideo(dailyVerse: DailyVerse) {
+        if (isSavingVideo) return
+        isSavingVideo = true
+        statusMessage = null
+        makeVideo(dailyVerse) { file ->
+            val saved = ShareUtils.saveVideoToGallery(context, file, "versetto-del-giorno-${dailyVerse.day ?: 0}.mp4")
+            statusMessage = if (saved) "Video salvato in Galleria." else "Non sono riuscito a salvare il video (serve Android 10 o superiore)."
+        }
+    }
 
     fun openDatePicker() {
         val date = viewModel.selectedDate
@@ -182,27 +272,44 @@ fun DailyVerseScreen(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
-                    ShareActionButton(icon = Icons.Filled.Share, label = "Invia audio")
-                    ShareActionButton(icon = Icons.Filled.Videocam, label = "Invia video")
-                    ShareActionButton(icon = Icons.Filled.Download, label = "Salva video")
+                    ShareActionButton(
+                        icon = if (isPreparingAudio) Icons.Filled.HourglassEmpty else Icons.Filled.Share,
+                        label = if (isPreparingAudio) "Preparo..." else "Invia audio",
+                        enabled = !isPreparingAudio,
+                        onClick = { shareAudio(verse) }
+                    )
+                    ShareActionButton(
+                        icon = if (isPreparingVideo) Icons.Filled.HourglassEmpty else Icons.Filled.Videocam,
+                        label = if (isPreparingVideo) "Preparo..." else "Invia video",
+                        enabled = !isPreparingVideo,
+                        onClick = { shareVideo(verse) }
+                    )
+                    ShareActionButton(
+                        icon = if (isSavingVideo) Icons.Filled.HourglassEmpty else Icons.Filled.Download,
+                        label = if (isSavingVideo) "Salvo..." else "Salva video",
+                        enabled = !isSavingVideo,
+                        onClick = { saveVideo(verse) }
+                    )
                 }
 
-                Spacer(Modifier.height(4.dp))
-                Text(
-                    "Condivisione audio/video del versetto in arrivo prossimamente.",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    textAlign = TextAlign.Center
-                )
+                statusMessage?.let {
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        it,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        textAlign = TextAlign.Center
+                    )
+                }
             }
         }
     }
 }
 
 @Composable
-private fun ShareActionButton(icon: androidx.compose.ui.graphics.vector.ImageVector, label: String) {
+private fun ShareActionButton(icon: ImageVector, label: String, enabled: Boolean = true, onClick: () -> Unit) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        IconButton(onClick = {}, enabled = false) {
+        IconButton(onClick = onClick, enabled = enabled) {
             Icon(icon, contentDescription = label)
         }
         Text(label, style = MaterialTheme.typography.labelSmall)

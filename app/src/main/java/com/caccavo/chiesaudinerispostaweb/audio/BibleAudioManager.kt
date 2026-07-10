@@ -433,6 +433,17 @@ class BibleAudioManager private constructor(context: Context) {
         savedReadingDescription = "$book $chapter:$verse"
     }
 
+    /** Scarica (se serve) e restituisce i file locali di questi audio, nello stesso ordine,
+     * saltando quelli non disponibili: usato dalla generazione video per assemblare la
+     * narrazione (titolo capitolo + versetti) in un unico file da mettere sotto il video. */
+    suspend fun prepareAudioFiles(audioIds: List<String>): List<File> {
+        ensureCached(audioIds)
+        return audioIds.mapNotNull { recordedAudioFile(it) }
+    }
+
+    fun chapterTitleId(bookName: String, chapter: Int, audioIdSuffix: String = ""): String =
+        chapterTitleAudioId(bookName, chapter, audioIdSuffix)
+
     private fun chapterTitleAudioId(bookName: String, chapter: Int, audioIdSuffix: String = ""): String =
         "$bookName$audioIdSuffix-$chapter-titolo"
 

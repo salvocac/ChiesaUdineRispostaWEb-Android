@@ -24,10 +24,12 @@ import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.HourglassEmpty
 import androidx.compose.material.icons.filled.RadioButtonUnchecked
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Stop
+import androidx.compose.material.icons.filled.Videocam
 import androidx.compose.material3.Button
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -44,6 +46,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -55,6 +58,11 @@ import com.caccavo.chiesaudinerispostaweb.bible.BibleReaderPayload
 import com.caccavo.chiesaudinerispostaweb.bible.BibleVerse
 import com.caccavo.chiesaudinerispostaweb.share.ShareUtils
 import com.caccavo.chiesaudinerispostaweb.share.VerseImageFactory
+import com.caccavo.chiesaudinerispostaweb.video.AudioCombiner
+import com.caccavo.chiesaudinerispostaweb.video.VideoBackground
+import com.caccavo.chiesaudinerispostaweb.video.VerseVideoFactory
+import kotlinx.coroutines.launch
+import java.io.File
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -65,11 +73,14 @@ fun BibleReaderScreen(
 ) {
     val context = LocalContext.current
     val audioManager = remember { BibleAudioManager.getInstance(context) }
+    val scope = rememberCoroutineScope()
 
     var overrideVerses by remember { mutableStateOf<List<BibleVerse>?>(null) }
     var overrideTitle by remember { mutableStateOf<String?>(null) }
     var isSelecting by remember { mutableStateOf(false) }
     var selectedIds by remember { mutableStateOf(setOf<String>()) }
+    var isPreparingVideo by remember { mutableStateOf(false) }
+    var videoStatus by remember { mutableStateOf<String?>(null) }
 
     val isFollowingAudio = payload.followsAudio && (audioManager.isSpeaking || audioManager.isPaused)
     val visibleVerses = if (isFollowingAudio) audioManager.currentReadingVerses else (overrideVerses ?: payload.verses)
@@ -95,6 +106,42 @@ fun BibleReaderScreen(
         if (selectedVerses.isEmpty()) return
         val bitmap = VerseImageFactory.makeVerseImage(context, selectedReference(), selectedShareText())
         ShareUtils.shareImage(context, bitmap)
+    }
+
+    fun shareSelectedVerseVideo() {
+        val verses = selectedVerses
+        if (verses.isEmpty() || isPreparingVideo) return
+        isPreparingVideo = true
+        videoStatus = null
+        val first = verses.first()
+        val titleId = audioManager.chapterTitleId(first.bookName, first.chapter, first.translation.audioIdSuffix)
+        val candidateIds = listOf(titleId) + verses.map { it.id }
+        val reference = selectedReference()
+        val body = verses.joinToString(" ") { it.text }
+        val background = VideoBackground.forIndex(first.book * 31 + first.chapter)
+
+        scope.launch {
+            val files = audioManager.prepareAudioFiles(candidateIds)
+            if (files.isEmpty()) {
+                isPreparingVideo = false
+                videoStatus = "Audio dei versetti selezionati non disponibile."
+                return@launch
+            }
+            val combined = AudioCombiner.combine(context, files, File(context.cacheDir, "versetti-audio-${System.currentTimeMillis()}.mp3"))
+            if (combined == null) {
+                isPreparingVideo = false
+                videoStatus = "Non sono riuscito a preparare l'audio."
+                return@launch
+            }
+            val outputFile = File(context.cacheDir, "versetti-video-${System.currentTimeMillis()}.mp4")
+            val videoFile = VerseVideoFactory.makeVideo(context, reference, body, combined, background, outputFile)
+            isPreparingVideo = false
+            if (videoFile == null) {
+                videoStatus = "Non sono riuscito a creare il video."
+            } else {
+                ShareUtils.shareFile(context, videoFile, "video/mp4", "Invia video versetti")
+            }
+        }
     }
 
     fun orderedBookChapters(): List<Triple<Int, String, Int>> {
@@ -200,14 +247,40 @@ fun BibleReaderScreen(
 
                     if (isSelecting) {
                         Spacer(Modifier.height(8.dp))
-                        Button(
-                            onClick = { shareSelectedVerses() },
-                            enabled = selectedIds.isNotEmpty(),
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            Icon(Icons.Filled.Share, contentDescription = null, modifier = Modifier.size(18.dp))
-                            Spacer(Modifier.width(6.dp))
-                            Text("Condividi (${selectedIds.size})")
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            Button(
+                                onClick = { shareSelectedVerses() },
+                                enabled = selectedIds.isNotEmpty(),
+                                modifier = Modifier.weight(1f)
+                            ) {
+                                Icon(Icons.Filled.Share, contentDescription = null, modifier = Modifier.size(18.dp))
+                                Spacer(Modifier.width(6.dp))
+                                Text("Condividi (${selectedIds.size})")
+                            }
+
+                            if (payload.audioAvailable) {
+                                Button(
+                                    onClick = { shareSelectedVerseVideo() },
+                                    enabled = selectedIds.isNotEmpty() && !isPreparingVideo,
+                                    modifier = Modifier.weight(1f)
+                                ) {
+                                    Icon(
+                                        if (isPreparingVideo) Icons.Filled.HourglassEmpty else Icons.Filled.Videocam,
+                                        contentDescription = null,
+                                        modifier = Modifier.size(18.dp)
+                                    )
+                                    Spacer(Modifier.width(6.dp))
+                                    Text(if (isPreparingVideo) "Creo..." else "Video")
+                                }
+                            }
+                        }
+                        videoStatus?.let {
+                            Spacer(Modifier.height(4.dp))
+                            Text(
+                                it,
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
                         }
                     }
                 }
