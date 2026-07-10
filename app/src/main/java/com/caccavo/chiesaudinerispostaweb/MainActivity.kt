@@ -12,8 +12,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.caccavo.chiesaudinerispostaweb.ui.audio.AudioSettingsScreen
 import com.caccavo.chiesaudinerispostaweb.ui.bible.BibleScreen
-import com.caccavo.chiesaudinerispostaweb.ui.common.ComingSoonScreen
 import com.caccavo.chiesaudinerispostaweb.ui.dailyverse.DailyVerseScreen
+import com.caccavo.chiesaudinerispostaweb.ui.guide.UserGuideScreen
 import com.caccavo.chiesaudinerispostaweb.ui.home.HomeScreen
 
 private const val ROUTE_HOME = "home"
@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
                             AudioSettingsScreen(onClose = { navController.popBackStack() })
                         }
                         composable(ROUTE_USER_GUIDE) {
-                            ComingSoonScreen("Guida all'uso dell'app") { navController.popBackStack() }
+                            UserGuideScreen(onClose = { navController.popBackStack() })
                         }
                     }
                 }
