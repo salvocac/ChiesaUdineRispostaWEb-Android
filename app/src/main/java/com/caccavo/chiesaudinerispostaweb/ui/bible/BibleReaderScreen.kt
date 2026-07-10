@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,22 +13,29 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.ChevronLeft
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.RadioButtonUnchecked
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Stop
+import androidx.compose.material3.Button
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -45,6 +53,8 @@ import androidx.compose.ui.unit.dp
 import com.caccavo.chiesaudinerispostaweb.audio.BibleAudioManager
 import com.caccavo.chiesaudinerispostaweb.bible.BibleReaderPayload
 import com.caccavo.chiesaudinerispostaweb.bible.BibleVerse
+import com.caccavo.chiesaudinerispostaweb.share.ShareUtils
+import com.caccavo.chiesaudinerispostaweb.share.VerseImageFactory
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -58,10 +68,34 @@ fun BibleReaderScreen(
 
     var overrideVerses by remember { mutableStateOf<List<BibleVerse>?>(null) }
     var overrideTitle by remember { mutableStateOf<String?>(null) }
+    var isSelecting by remember { mutableStateOf(false) }
+    var selectedIds by remember { mutableStateOf(setOf<String>()) }
 
     val isFollowingAudio = payload.followsAudio && (audioManager.isSpeaking || audioManager.isPaused)
     val visibleVerses = if (isFollowingAudio) audioManager.currentReadingVerses else (overrideVerses ?: payload.verses)
     val visibleTitle = if (isFollowingAudio) audioManager.currentReadingTitle else (overrideTitle ?: payload.title)
+
+    val selectedVerses = visibleVerses.filter { selectedIds.contains(it.id) }
+
+    fun selectedReference(): String {
+        val first = selectedVerses.firstOrNull() ?: return visibleTitle
+        if (selectedVerses.size == 1) return "${first.bookName} ${first.chapter}:${first.verse}"
+        val last = selectedVerses.last()
+        return if (selectedVerses.all { it.bookName == first.bookName && it.chapter == first.chapter }) {
+            "${first.bookName} ${first.chapter}:${first.verse}-${last.verse}"
+        } else {
+            "Versetti selezionati"
+        }
+    }
+
+    fun selectedShareText(): String =
+        selectedVerses.joinToString("\n\n") { "${it.bookName} ${it.chapter}:${it.verse} ${it.text}" }
+
+    fun shareSelectedVerses() {
+        if (selectedVerses.isEmpty()) return
+        val bitmap = VerseImageFactory.makeVerseImage(context, selectedReference(), selectedShareText())
+        ShareUtils.shareImage(context, bitmap)
+    }
 
     fun orderedBookChapters(): List<Triple<Int, String, Int>> {
         val seen = HashSet<String>()
@@ -134,6 +168,50 @@ fun BibleReaderScreen(
                     }
                 }
             )
+        },
+        bottomBar = {
+            if (visibleVerses.isNotEmpty() && !payload.isSearchResult) {
+                Column(modifier = Modifier.fillMaxWidth().padding(12.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        OutlinedButton(onClick = {
+                            isSelecting = !isSelecting
+                            if (!isSelecting) selectedIds = emptySet()
+                        }) {
+                            Icon(
+                                if (isSelecting) Icons.Filled.CheckCircle else Icons.Filled.RadioButtonUnchecked,
+                                contentDescription = null,
+                                modifier = Modifier.size(18.dp)
+                            )
+                            Spacer(Modifier.width(6.dp))
+                            Text(if (isSelecting) "Fine" else "Seleziona versetti")
+                        }
+
+                        if (isSelecting) {
+                            OutlinedButton(onClick = {
+                                selectedIds = visibleVerses.map { it.id }.toSet()
+                            }) {
+                                Text("Seleziona tutti")
+                            }
+                        }
+                    }
+
+                    if (isSelecting) {
+                        Spacer(Modifier.height(8.dp))
+                        Button(
+                            onClick = { shareSelectedVerses() },
+                            enabled = selectedIds.isNotEmpty(),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Icon(Icons.Filled.Share, contentDescription = null, modifier = Modifier.size(18.dp))
+                            Spacer(Modifier.width(6.dp))
+                            Text("Condividi (${selectedIds.size})")
+                        }
+                    }
+                }
+            }
         }
     ) { padding ->
         if (visibleVerses.isEmpty()) {
@@ -194,7 +272,20 @@ fun BibleReaderScreen(
                 ) {
                     items(visibleVerses, key = { it.id }) { verse ->
                         val isPlaying = isFollowingAudio && verse.id == audioManager.currentVerseId
-                        BibleVerseRow(verse = verse, isSearchResult = payload.isSearchResult, isCurrentlyPlaying = isPlaying)
+                        BibleVerseRow(
+                            verse = verse,
+                            isSearchResult = payload.isSearchResult,
+                            isCurrentlyPlaying = isPlaying,
+                            isSelecting = isSelecting,
+                            isSelected = selectedIds.contains(verse.id),
+                            onToggleSelected = {
+                                selectedIds = if (selectedIds.contains(verse.id)) {
+                                    selectedIds - verse.id
+                                } else {
+                                    selectedIds + verse.id
+                                }
+                            }
+                        )
                         Divider()
                     }
                 }
@@ -204,7 +295,14 @@ fun BibleReaderScreen(
 }
 
 @Composable
-private fun BibleVerseRow(verse: BibleVerse, isSearchResult: Boolean, isCurrentlyPlaying: Boolean = false) {
+private fun BibleVerseRow(
+    verse: BibleVerse,
+    isSearchResult: Boolean,
+    isCurrentlyPlaying: Boolean = false,
+    isSelecting: Boolean = false,
+    isSelected: Boolean = false,
+    onToggleSelected: () -> Unit = {}
+) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -212,8 +310,18 @@ private fun BibleVerseRow(verse: BibleVerse, isSearchResult: Boolean, isCurrentl
                 if (isCurrentlyPlaying) MaterialTheme.colorScheme.primary.copy(alpha = 0.12f) else MaterialTheme.colorScheme.surface,
                 RoundedCornerShape(8.dp)
             )
+            .let { if (isSelecting) it.clickable { onToggleSelected() } else it }
             .padding(vertical = 6.dp, horizontal = 4.dp)
     ) {
+        if (isSelecting) {
+            Icon(
+                if (isSelected) Icons.Filled.CheckCircle else Icons.Filled.RadioButtonUnchecked,
+                contentDescription = null,
+                tint = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(end = 8.dp)
+            )
+        }
+
         if (isSearchResult) {
             Column(modifier = Modifier.width(90.dp)) {
                 Text(
