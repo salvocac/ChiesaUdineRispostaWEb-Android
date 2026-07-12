@@ -77,6 +77,9 @@ dependencies {
     // Parsing JSON (dati Bibbia)
     implementation("com.google.code.gson:gson:2.11.0")
 
+    // Richiesta recensione in-app su Google Play a fine lettura
+    implementation("com.google.android.play:review:2.0.1")
+
     // Composizione video versetto del giorno
     implementation("androidx.media3:media3-transformer:1.3.1")
     implementation("androidx.media3:media3-effect:1.3.1")

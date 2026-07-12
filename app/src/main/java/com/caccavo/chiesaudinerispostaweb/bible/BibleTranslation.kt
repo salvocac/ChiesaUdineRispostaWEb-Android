@@ -24,8 +24,11 @@ enum class BibleTranslation {
             LLC -> "-LLC"
         }
 
-    /** La LLC non ha ancora audio registrato: finché resta false, la UI nasconde
-     * i controlli di ascolto/invio audio/invio video invece di fallire in silenzio. */
+    /** Se una traduzione non ha audio registrato, l'app nasconde i controlli di
+     * ascolto/invio audio/invio video invece di fallire in silenzio. */
     val hasAudio: Boolean
-        get() = this == RIVEDUTA
+        get() = when (this) {
+            RIVEDUTA -> true
+            LLC -> true
+        }
 }

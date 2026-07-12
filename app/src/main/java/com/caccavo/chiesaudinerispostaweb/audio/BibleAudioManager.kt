@@ -12,6 +12,7 @@ import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
 import com.caccavo.chiesaudinerispostaweb.bible.BibleVerse
 import com.caccavo.chiesaudinerispostaweb.dailyverse.DailyVerse
+import com.caccavo.chiesaudinerispostaweb.review.ReviewRequestManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.CoroutineScope
@@ -125,6 +126,21 @@ class BibleAudioManager private constructor(context: Context) {
     var hasSavedReading by mutableStateOf(false)
         private set
     var savedReadingDescription by mutableStateOf("")
+        private set
+
+    /** Coda audio del versetto del giorno (titolo, versetti, commento): la schermata la usa
+     * per capire quale segmento del testo si sta ascoltando e per evidenziarlo/seguirlo,
+     * come fa il lettore della Bibbia con i versetti. Vuota quando non si sta ascoltando
+     * il versetto del giorno. */
+    var dailyQueueAudioIds by mutableStateOf(listOf<String>())
+        private set
+    var dailyQueueIndex by mutableStateOf(0)
+        private set
+
+    /** Avanzamento (0..1) dentro la clip corrente della coda del versetto del giorno: serve
+     * per stimare la frase del commento che si sta leggendo, dato che il commento è un
+     * unico file audio. */
+    var dailyItemProgress by mutableStateOf(0f)
         private set
 
     private var player: ExoPlayer? = null
@@ -242,7 +258,13 @@ class BibleAudioManager private constructor(context: Context) {
             currentReadingTitle = dailyVerse.reference ?: "Versetto del giorno"
             currentReadingVerses = emptyList()
 
+            if (dailyVerse.commentAudioID?.let { recordedAudioFile(it) } == null) {
+                lastError = "Il commento audio non è ancora presente."
+            }
             playAudioIds(audioIds, verses = audioIds.map { null }, onComplete = { finishPlayback() })
+            dailyQueueAudioIds = audioIds
+            dailyQueueIndex = 0
+            dailyItemProgress = 0f
         }
     }
 
@@ -311,6 +333,9 @@ class BibleAudioManager private constructor(context: Context) {
         isSpeaking = false
         isPaused = false
         playbackProgress = 0f
+        dailyQueueAudioIds = emptyList()
+        dailyQueueIndex = 0
+        dailyItemProgress = 0f
         if (clearDisplay) {
             currentReadingTitle = ""
             currentReadingVerses = emptyList()
@@ -321,6 +346,7 @@ class BibleAudioManager private constructor(context: Context) {
     private fun playCurrentChapter(initialSeekSeconds: Float = 0f) {
         val chapter = chapters.getOrNull(chapterIndex) ?: run {
             finishPlayback()
+            ReviewRequestManager.requestIfDue(appContext)
             return
         }
 
@@ -365,6 +391,7 @@ class BibleAudioManager private constructor(context: Context) {
             playCurrentChapter()
         } else {
             finishPlayback()
+            ReviewRequestManager.requestIfDue(appContext)
         }
     }
 
@@ -428,6 +455,10 @@ class BibleAudioManager private constructor(context: Context) {
             (exo.currentPosition.toFloat() / duration.toFloat()).coerceIn(0f, 1f)
         } else 0f
         playbackProgress = ((exo.currentMediaItemIndex + itemProgress) / itemCount).coerceIn(0f, 1f)
+        if (dailyQueueAudioIds.isNotEmpty()) {
+            dailyQueueIndex = exo.currentMediaItemIndex
+            dailyItemProgress = itemProgress
+        }
         saveCurrentPosition()
     }
 
@@ -463,6 +494,9 @@ class BibleAudioManager private constructor(context: Context) {
         isPaused = false
         playbackProgress = 1f
         pendingCompletion = null
+        dailyQueueAudioIds = emptyList()
+        dailyQueueIndex = 0
+        dailyItemProgress = 0f
     }
 
     private fun refreshSavedReading() {
