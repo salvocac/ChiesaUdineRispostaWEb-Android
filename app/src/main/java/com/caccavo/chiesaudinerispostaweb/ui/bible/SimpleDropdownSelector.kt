@@ -24,35 +24,55 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 
+import androidx.compose.foundation.layout.size
+import androidx.compose.ui.unit.sp
+
 @Composable
 fun <T> SimpleDropdownSelector(
     label: (T) -> String,
     options: List<T>,
     selected: T,
     onSelected: (T) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    isCompact: Boolean = false
 ) {
     var expanded by remember { mutableStateOf(false) }
+    
+    val horizontalPadding = if (isCompact) 6.dp else 10.dp
+    val verticalPadding = if (isCompact) 4.dp else 6.dp
+    val textStyle = if (isCompact) MaterialTheme.typography.bodySmall else MaterialTheme.typography.bodyMedium
+    val iconSize = if (isCompact) 16.dp else 20.dp
+    val cornerRadius = if (isCompact) 8.dp else 10.dp
 
     Row(
         modifier = modifier
             .clickable { expanded = true }
             .background(
                 MaterialTheme.colorScheme.surfaceVariant,
-                RoundedCornerShape(10.dp)
+                RoundedCornerShape(cornerRadius)
             )
-            .padding(horizontal = 10.dp, vertical = 6.dp),
+            .padding(horizontal = horizontalPadding, vertical = verticalPadding),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(text = label(selected), maxLines = 1, overflow = TextOverflow.Ellipsis)
-        Spacer(Modifier.width(4.dp))
-        Icon(Icons.Filled.ArrowDropDown, contentDescription = null)
+        Text(
+            text = label(selected),
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            style = textStyle,
+            modifier = Modifier.weight(1f, fill = false)
+        )
+        Spacer(Modifier.width(if (isCompact) 2.dp else 4.dp))
+        Icon(
+            Icons.Filled.ArrowDropDown,
+            contentDescription = null,
+            modifier = Modifier.size(iconSize)
+        )
     }
 
     DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
         options.forEach { option ->
             DropdownMenuItem(
-                text = { Text(label(option)) },
+                text = { Text(label(option), style = textStyle) },
                 onClick = {
                     onSelected(option)
                     expanded = false

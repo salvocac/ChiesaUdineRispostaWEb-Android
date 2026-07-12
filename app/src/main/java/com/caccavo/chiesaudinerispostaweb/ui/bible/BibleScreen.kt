@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -146,19 +148,26 @@ fun BibleScreen(
 
                     Spacer(Modifier.height(8.dp))
 
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
                         SimpleDropdownSelector(
                             label = { it.displayName },
                             options = BibleTranslation.entries,
                             selected = viewModel.selectedTranslation,
-                            onSelected = viewModel::selectTranslation
+                            onSelected = viewModel::selectTranslation,
+                            modifier = Modifier.weight(1f),
+                            isCompact = true
                         )
 
                         SimpleDropdownSelector(
                             label = { it },
                             options = viewModel.bookNames,
                             selected = viewModel.selectedBook,
-                            onSelected = viewModel::selectBook
+                            onSelected = viewModel::selectBook,
+                            modifier = Modifier.weight(1f),
+                            isCompact = true
                         )
                     }
 
@@ -305,53 +314,85 @@ private fun ChapterVersePickerBar(
     onEndVerseSelected: (Int) -> Unit,
     onSearch: () -> Unit
 ) {
-    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-            IconButton(onClick = onChapterBack) {
-                Icon(Icons.Filled.ChevronLeft, contentDescription = "Capitolo precedente")
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        // Capitolo Navigation (Left Chevron, Cap Dropdown, Right Chevron)
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(2.dp)
+        ) {
+            IconButton(
+                onClick = onChapterBack,
+                modifier = Modifier.size(32.dp)
+            ) {
+                Icon(
+                    Icons.Filled.ChevronLeft,
+                    contentDescription = "Capitolo precedente",
+                    modifier = Modifier.size(20.dp)
+                )
             }
 
-            Column {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text("Cap.", style = MaterialTheme.typography.labelSmall)
                 SimpleDropdownSelector(
                     label = { it.toString() },
                     options = chapters,
                     selected = selectedChapter,
-                    onSelected = onChapterSelected
+                    onSelected = onChapterSelected,
+                    isCompact = true
                 )
             }
 
-            IconButton(onClick = onChapterForward) {
-                Icon(Icons.Filled.ChevronRight, contentDescription = "Capitolo successivo")
+            IconButton(
+                onClick = onChapterForward,
+                modifier = Modifier.size(32.dp)
+            ) {
+                Icon(
+                    Icons.Filled.ChevronRight,
+                    contentDescription = "Capitolo successivo",
+                    modifier = Modifier.size(20.dp)
+                )
             }
         }
 
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-            Column {
+        // Versetti Range (Da / A)
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text("Da", style = MaterialTheme.typography.labelSmall)
                 SimpleDropdownSelector(
                     label = { it.toString() },
                     options = verseNumbers,
                     selected = startVerse,
-                    onSelected = onStartVerseSelected
+                    onSelected = onStartVerseSelected,
+                    isCompact = true
                 )
             }
 
-            Column {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text("A", style = MaterialTheme.typography.labelSmall)
                 SimpleDropdownSelector(
                     label = { it.toString() },
                     options = verseNumbers,
                     selected = endVerse,
-                    onSelected = onEndVerseSelected
+                    onSelected = onEndVerseSelected,
+                    isCompact = true
                 )
             }
+        }
 
-            Spacer(Modifier.width(8.dp))
-
-            Button(onClick = onSearch) {
-                Text("Cerca")
-            }
+        // Cerca button
+        Button(
+            onClick = onSearch,
+            contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp),
+            modifier = Modifier.height(36.dp)
+        ) {
+            Text("Cerca", style = MaterialTheme.typography.labelMedium)
         }
     }
 }
