@@ -1,94 +1,134 @@
 [
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-hdpi/ic_launcher_round.png"
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-xhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-xhdpi/ic_launcher_foreground.png"
+        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/drawable_bg_panorama_6.jpg.flat",
+        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/drawable/bg_panorama_6.jpg"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-xhdpi/ic_launcher_round.png"
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/drawable_instagram.png.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/drawable/instagram.png"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-mdpi_ic_launcher_foreground.png.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-mdpi/ic_launcher_foreground.png"
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-xhdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-xxxhdpi/ic_launcher_foreground.png"
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-hdpi/ic_launcher.png"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-xxhdpi/ic_launcher.png"
+        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/drawable_bg_panorama_4.jpg.flat",
+        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/drawable/bg_panorama_4.jpg"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-xxhdpi/ic_launcher_round.png"
+        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/drawable_bg_panorama_8.jpg.flat",
+        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/drawable/bg_panorama_8.jpg"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-hdpi_ic_launcher_foreground.png.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-hdpi/ic_launcher_foreground.png"
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/drawable_instagram.png.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/drawable/instagram.png"
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/drawable_facebook.png.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/drawable/facebook.png"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/drawable_logo.png.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/drawable/logo.png"
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/drawable_logo.png.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/drawable/logo.png"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-xhdpi/ic_launcher.png"
+        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/drawable_bg_panorama_1.jpg.flat",
+        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/drawable/bg_panorama_1.jpg"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-mdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/drawable_facebook.png.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/drawable/facebook.png"
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-xxhdpi/ic_launcher_foreground.png"
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-xxxhdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/drawable_ic_notification_book.xml.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/drawable/ic_notification_book.xml"
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/xml_file_paths.xml.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/xml/file_paths.xml"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-mdpi/ic_launcher_round.png"
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/drawable_ic_notification_book.xml.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/drawable/ic_notification_book.xml"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-hdpi/ic_launcher.png"
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-xxhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-xxxhdpi/ic_launcher_round.png"
+        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/drawable_bg_panorama_10.jpg.flat",
+        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/drawable/bg_panorama_10.jpg"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/drawable_youtube.png.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/drawable/youtube.png"
+        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/drawable_bg_panorama_7.jpg.flat",
+        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/drawable/bg_panorama_7.jpg"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/drawable_youtube.png.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/drawable/youtube.png"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/drawable_bg_panorama_9.jpg.flat",
+        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/drawable/bg_panorama_9.jpg"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/xml_file_paths.xml.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/xml/file_paths.xml"
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-xhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-mdpi/ic_launcher.png"
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/drawable_bg_panorama_3.jpg.flat",
+        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/drawable/bg_panorama_3.jpg"
+    },
+    {
+        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/drawable_bg_panorama_2.jpg.flat",
+        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/drawable/bg_panorama_2.jpg"
+    },
+    {
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.caccavo.chiesaudinerispostaweb.app-debug-57:/drawable_bg_panorama_5.jpg.flat",
+        "source": "com.caccavo.chiesaudinerispostaweb.app-main-59:/drawable/bg_panorama_5.jpg"
+    },
+    {
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-debug-57:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/salvatorecaccavo/.gradle/daemon/8.13/com.caccavo.chiesaudinerispostaweb.app-main-59:/mipmap-xxxhdpi/ic_launcher_round.png"
     }
 ]

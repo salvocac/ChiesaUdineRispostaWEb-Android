@@ -66,6 +66,8 @@ import com.caccavo.chiesaudinerispostaweb.share.VerseImageFactory
 import com.caccavo.chiesaudinerispostaweb.video.AudioCombiner
 import com.caccavo.chiesaudinerispostaweb.video.VideoBackground
 import com.caccavo.chiesaudinerispostaweb.video.VerseVideoFactory
+import com.caccavo.chiesaudinerispostaweb.ui.bible.VideoCustomizationDialog
+import com.caccavo.chiesaudinerispostaweb.ui.bible.BackgroundOption
 import kotlinx.coroutines.launch
 import java.io.File
 
@@ -87,6 +89,7 @@ fun BibleReaderScreen(
     var isPreparingVideo by remember { mutableStateOf(false) }
     var videoStatus by remember { mutableStateOf<String?>(null) }
     var didCopyTexts by remember { mutableStateOf(false) }
+    var showVideoCustomizationDialog by remember { mutableStateOf(false) }
 
     LaunchedEffect(didCopyTexts) {
         if (didCopyTexts) {
@@ -124,6 +127,12 @@ fun BibleReaderScreen(
     fun shareSelectedVerseVideo() {
         val verses = selectedVerses
         if (verses.isEmpty() || isPreparingVideo) return
+        showVideoCustomizationDialog = true
+    }
+
+    fun generateSelectedVerseVideo(backgroundOpt: BackgroundOption, fontSizeScale: Float, fontColor: Int) {
+        val verses = selectedVerses
+        if (verses.isEmpty() || isPreparingVideo) return
         isPreparingVideo = true
         videoStatus = null
         val first = verses.first()
@@ -131,7 +140,8 @@ fun BibleReaderScreen(
         val candidateIds = listOf(titleId) + verses.map { it.id }
         val reference = selectedReference()
         val body = verses.joinToString(" ") { it.text }
-        val background = VideoBackground.forIndex(first.book * 31 + first.chapter)
+        val background = backgroundOpt.gradientBackground ?: VideoBackground.forIndex(first.book * 31 + first.chapter)
+        val bgImageResId = backgroundOpt.drawableResId
 
         scope.launch {
             val files = audioManager.prepareAudioFiles(candidateIds)
@@ -147,7 +157,17 @@ fun BibleReaderScreen(
                 return@launch
             }
             val outputFile = File(context.cacheDir, "versetti-video-${System.currentTimeMillis()}.mp4")
-            val videoFile = VerseVideoFactory.makeVideo(context, reference, body, combined, background, outputFile)
+            val videoFile = VerseVideoFactory.makeVideo(
+                context = context,
+                reference = reference,
+                body = body,
+                audioFile = combined,
+                background = background,
+                bgImageResId = bgImageResId,
+                fontSizeScale = fontSizeScale,
+                fontColor = fontColor,
+                outputFile = outputFile
+            )
             isPreparingVideo = false
             if (videoFile == null) {
                 videoStatus = "Non sono riuscito a creare il video."
@@ -395,6 +415,16 @@ fun BibleReaderScreen(
                     }
                 }
             }
+        }
+        
+        if (showVideoCustomizationDialog) {
+            VideoCustomizationDialog(
+                onDismiss = { showVideoCustomizationDialog = false },
+                onConfirm = { backgroundOpt, fontSizeScale, fontColor ->
+                    showVideoCustomizationDialog = false
+                    generateSelectedVerseVideo(backgroundOpt, fontSizeScale, fontColor)
+                }
+            )
         }
     }
 }

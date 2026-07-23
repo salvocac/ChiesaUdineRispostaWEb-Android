@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="chiesa_accent">#2B6CB0</color>
-    <color name="chiesa_background_dark">#121212</color>
-    <color name="chiesa_background_light">#FFFFFF</color>
-    <color name="ic_launcher_background">#033290</color>
-    <string name="app_name">Chiesa Udine</string>
-    <style name="Theme.ChiesaUdineRispostaWeb" parent="android:Theme.Material.Light.NoActionBar"/>
-</resources>

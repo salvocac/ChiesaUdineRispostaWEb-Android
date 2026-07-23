@@ -4,6 +4,16 @@ color chiesa_accent
 color chiesa_background_dark
 color chiesa_background_light
 color ic_launcher_background
+drawable bg_panorama_1
+drawable bg_panorama_10
+drawable bg_panorama_2
+drawable bg_panorama_3
+drawable bg_panorama_4
+drawable bg_panorama_5
+drawable bg_panorama_6
+drawable bg_panorama_7
+drawable bg_panorama_8
+drawable bg_panorama_9
 drawable facebook
 drawable ic_notification_book
 drawable instagram

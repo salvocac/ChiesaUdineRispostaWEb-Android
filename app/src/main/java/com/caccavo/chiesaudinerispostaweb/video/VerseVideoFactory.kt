@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.LinearGradient
+import android.graphics.Matrix
 import android.graphics.Paint
 import android.graphics.Shader
 import android.text.Layout
@@ -48,14 +49,43 @@ object VerseVideoFactory {
     private const val WIDTH = 1080
     private const val HEIGHT = 1440
 
-    private fun renderCardBitmap(context: Context, reference: String, body: String, background: VideoBackground): Bitmap {
+    private fun renderCardBitmap(
+        context: Context,
+        reference: String,
+        body: String,
+        background: VideoBackground,
+        bgImageResId: Int?,
+        fontSizeScale: Float,
+        fontColor: Int
+    ): Bitmap {
         val bitmap = Bitmap.createBitmap(WIDTH, HEIGHT, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
 
-        val backgroundPaint = Paint().apply {
-            shader = background.shader(WIDTH.toFloat(), HEIGHT.toFloat())
+        if (bgImageResId != null) {
+            val bgBitmap = runCatching { BitmapFactory.decodeResource(context.resources, bgImageResId) }.getOrNull()
+            if (bgBitmap != null) {
+                val scaled = Bitmap.createScaledBitmap(bgBitmap, WIDTH, HEIGHT, true)
+                canvas.drawBitmap(scaled, 0f, 0f, null)
+                scaled.recycle()
+                bgBitmap.recycle()
+
+                // Aggiunge un velo scuro trasparente per migliorare la leggibilità del testo
+                val overlayPaint = Paint().apply {
+                    color = Color.argb(60, 0, 0, 0)
+                }
+                canvas.drawRect(0f, 0f, WIDTH.toFloat(), HEIGHT.toFloat(), overlayPaint)
+            } else {
+                val backgroundPaint = Paint().apply {
+                    shader = background.shader(WIDTH.toFloat(), HEIGHT.toFloat())
+                }
+                canvas.drawRect(0f, 0f, WIDTH.toFloat(), HEIGHT.toFloat(), backgroundPaint)
+            }
+        } else {
+            val backgroundPaint = Paint().apply {
+                shader = background.shader(WIDTH.toFloat(), HEIGHT.toFloat())
+            }
+            canvas.drawRect(0f, 0f, WIDTH.toFloat(), HEIGHT.toFloat(), backgroundPaint)
         }
-        canvas.drawRect(0f, 0f, WIDTH.toFloat(), HEIGHT.toFloat(), backgroundPaint)
 
         val centerX = WIDTH / 2f
         var y = 260f
@@ -71,18 +101,18 @@ object VerseVideoFactory {
 
         val referencePaint = TextPaint().apply {
             isAntiAlias = true
-            color = Color.WHITE
-            textSize = 68f
+            color = fontColor
+            textSize = 68f * fontSizeScale
             isFakeBoldText = true
             textAlign = Paint.Align.CENTER
         }
         canvas.drawText(reference, centerX, y, referencePaint)
-        y += 110f
+        y += 110f * fontSizeScale
 
         val bodyPaint = TextPaint().apply {
             isAntiAlias = true
-            color = Color.WHITE
-            textSize = 52f
+            color = fontColor
+            textSize = 52f * fontSizeScale
         }
         val textWidth = WIDTH - 2 * 150
         val layout = StaticLayout.Builder
@@ -97,7 +127,7 @@ object VerseVideoFactory {
 
         val footerPaint = TextPaint().apply {
             isAntiAlias = true
-            color = Color.argb(200, 255, 255, 255)
+            color = Color.argb(200, Color.red(fontColor), Color.green(fontColor), Color.blue(fontColor))
             textSize = 34f
             textAlign = Paint.Align.CENTER
         }
@@ -112,14 +142,18 @@ object VerseVideoFactory {
         body: String,
         audioFile: File,
         background: VideoBackground,
+        bgImageResId: Int?,
+        fontSizeScale: Float,
+        fontColor: Int,
         outputFile: File
     ): File? {
         val durationSeconds = withContext(Dispatchers.IO) { AudioCombiner.durationSeconds(audioFile) }
         if (durationSeconds <= 0.0) return null
 
-        val bitmap = renderCardBitmap(context, reference, body, background)
+        val bitmap = renderCardBitmap(context, reference, body, background, bgImageResId, fontSizeScale, fontColor)
+        val rotatedBitmap = rotateBitmap180(bitmap)
         val imageFile = File(context.cacheDir, "video-card-${System.currentTimeMillis()}.png")
-        FileOutputStream(imageFile).use { out -> bitmap.compress(Bitmap.CompressFormat.PNG, 100, out) }
+        FileOutputStream(imageFile).use { out -> rotatedBitmap.compress(Bitmap.CompressFormat.PNG, 100, out) }
 
         val imageMediaItem = MediaItem.Builder()
             .setUri(imageFile.toURI().toString())
@@ -162,5 +196,16 @@ object VerseVideoFactory {
             imageFile.delete()
             if (result) outputFile else null
         }
+    }
+
+    private fun rotateBitmap180(src: Bitmap): Bitmap {
+        val matrix = Matrix().apply {
+            postRotate(180f)
+        }
+        val rotated = Bitmap.createBitmap(src, 0, 0, src.width, src.height, matrix, true)
+        if (rotated != src) {
+            src.recycle()
+        }
+        return rotated
     }
 }

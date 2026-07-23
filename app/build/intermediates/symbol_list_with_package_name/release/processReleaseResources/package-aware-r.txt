@@ -79,6 +79,16 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+drawable bg_panorama_1
+drawable bg_panorama_10
+drawable bg_panorama_2
+drawable bg_panorama_3
+drawable bg_panorama_4
+drawable bg_panorama_5
+drawable bg_panorama_6
+drawable bg_panorama_7
+drawable bg_panorama_8
+drawable bg_panorama_9
 drawable facebook
 drawable ic_call_answer
 drawable ic_call_answer_low

@@ -60,6 +60,8 @@ import com.caccavo.chiesaudinerispostaweb.share.ShareUtils
 import com.caccavo.chiesaudinerispostaweb.video.AudioCombiner
 import com.caccavo.chiesaudinerispostaweb.video.VerseVideoFactory
 import com.caccavo.chiesaudinerispostaweb.video.VideoBackground
+import com.caccavo.chiesaudinerispostaweb.ui.bible.VideoCustomizationDialog
+import com.caccavo.chiesaudinerispostaweb.ui.bible.BackgroundOption
 import kotlinx.coroutines.launch
 import java.io.File
 import java.time.LocalDate
@@ -134,6 +136,9 @@ fun DailyVerseScreen(
     var isPreparingVideo by remember { mutableStateOf(false) }
     var isSavingVideo by remember { mutableStateOf(false) }
     var statusMessage by remember { mutableStateOf<String?>(null) }
+    var showVideoCustomizationDialog by remember { mutableStateOf(false) }
+    var pendingVideoAction by remember { mutableStateOf<String?>(null) } // "share" or "save"
+    var customizationDailyVerse by remember { mutableStateOf<DailyVerse?>(null) }
 
     suspend fun combinedAudioFile(dailyVerse: DailyVerse): File? {
         val files = audioManager.prepareAudioFiles(dailyVerse.candidateAudioIds())
@@ -157,10 +162,11 @@ fun DailyVerseScreen(
         }
     }
 
-    fun makeVideo(dailyVerse: DailyVerse, onReady: (File) -> Unit) {
+    fun makeVideo(dailyVerse: DailyVerse, backgroundOpt: BackgroundOption, fontSizeScale: Float, fontColor: Int, onReady: (File) -> Unit) {
         val reference = dailyVerse.reference ?: "Versetto del giorno"
         val body = listOfNotNull(dailyVerse.verseText, dailyVerse.reflection).joinToString("\n\n")
-        val background = VideoBackground.forIndex(dailyVerse.day ?: 0)
+        val background = backgroundOpt.gradientBackground ?: VideoBackground.forIndex(dailyVerse.day ?: 0)
+        val bgImageResId = backgroundOpt.drawableResId
         scope.launch {
             val audioFile = combinedAudioFile(dailyVerse)
             if (audioFile == null) {
@@ -170,7 +176,17 @@ fun DailyVerseScreen(
                 return@launch
             }
             val outputFile = File(context.cacheDir, "versetto-del-giorno-video-${dailyVerse.day ?: 0}.mp4")
-            val videoFile = VerseVideoFactory.makeVideo(context, reference, body, audioFile, background, outputFile)
+            val videoFile = VerseVideoFactory.makeVideo(
+                context = context,
+                reference = reference,
+                body = body,
+                audioFile = audioFile,
+                background = background,
+                bgImageResId = bgImageResId,
+                fontSizeScale = fontSizeScale,
+                fontColor = fontColor,
+                outputFile = outputFile
+            )
             isPreparingVideo = false
             isSavingVideo = false
             if (videoFile == null) {
@@ -183,21 +199,16 @@ fun DailyVerseScreen(
 
     fun shareVideo(dailyVerse: DailyVerse) {
         if (isPreparingVideo) return
-        isPreparingVideo = true
-        statusMessage = null
-        makeVideo(dailyVerse) { file ->
-            ShareUtils.shareFile(context, file, "video/mp4", "Invia video versetto")
-        }
+        customizationDailyVerse = dailyVerse
+        pendingVideoAction = "share"
+        showVideoCustomizationDialog = true
     }
 
     fun saveVideo(dailyVerse: DailyVerse) {
         if (isSavingVideo) return
-        isSavingVideo = true
-        statusMessage = null
-        makeVideo(dailyVerse) { file ->
-            val saved = ShareUtils.saveVideoToGallery(context, file, "versetto-del-giorno-${dailyVerse.day ?: 0}.mp4")
-            statusMessage = if (saved) "Video salvato in Galleria." else "Non sono riuscito a salvare il video."
-        }
+        customizationDailyVerse = dailyVerse
+        pendingVideoAction = "save"
+        showVideoCustomizationDialog = true
     }
 
     fun openDatePicker() {
@@ -413,6 +424,40 @@ fun DailyVerseScreen(
                     )
                 }
             }
+        }
+
+        if (showVideoCustomizationDialog) {
+            VideoCustomizationDialog(
+                onDismiss = {
+                    showVideoCustomizationDialog = false
+                    pendingVideoAction = null
+                    customizationDailyVerse = null
+                },
+                onConfirm = { backgroundOpt, fontSizeScale, fontColor ->
+                    showVideoCustomizationDialog = false
+                    val action = pendingVideoAction
+                    val v = customizationDailyVerse
+                    pendingVideoAction = null
+                    customizationDailyVerse = null
+                    
+                    if (v != null && action != null) {
+                        if (action == "share") {
+                            isPreparingVideo = true
+                            statusMessage = null
+                            makeVideo(v, backgroundOpt, fontSizeScale, fontColor) { file ->
+                                ShareUtils.shareFile(context, file, "video/mp4", "Invia video versetto")
+                            }
+                        } else if (action == "save") {
+                            isSavingVideo = true
+                            statusMessage = null
+                            makeVideo(v, backgroundOpt, fontSizeScale, fontColor) { file ->
+                                val saved = ShareUtils.saveVideoToGallery(context, file, "versetto-del-giorno-${v.day ?: 0}.mp4")
+                                statusMessage = if (saved) "Video salvato in Galleria." else "Non sono riuscito a salvare il video."
+                            }
+                        }
+                    }
+                }
+            )
         }
     }
 }
