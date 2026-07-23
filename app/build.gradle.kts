@@ -4,24 +4,33 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
 }
 
+import java.util.Properties
+
 android {
     namespace = "com.caccavo.chiesaudinerispostaweb"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.caccavo.chiesaudinerispostaweb"
+        applicationId = "com.scdevelopment.chiesaudinerispostaweb"
         minSdk = 29
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        targetSdk = 35
+        versionCode = 6
+        versionName = "1.0.5"
+    }
+
+    val localProperties = Properties()
+    val localPropertiesFile = rootProject.file("local.properties")
+    if (localPropertiesFile.exists()) {
+        localProperties.load(localPropertiesFile.inputStream())
     }
 
     signingConfigs {
         create("release") {
-            storeFile = rootProject.file(project.findProperty("KEYSTORE_FILE") as? String ?: "keystore/chiesa-key.jks")
-            storePassword = project.findProperty("KEYSTORE_PASSWORD") as? String
-            keyAlias = project.findProperty("KEY_ALIAS") as? String
-            keyPassword = project.findProperty("KEY_PASSWORD") as? String
+            val keystorePath = localProperties.getProperty("KEYSTORE_FILE") ?: "keystore/chiesa-key.jks"
+            storeFile = rootProject.file(keystorePath)
+            storePassword = localProperties.getProperty("KEYSTORE_PASSWORD")
+            keyAlias = localProperties.getProperty("KEY_ALIAS")
+            keyPassword = localProperties.getProperty("KEY_PASSWORD")
         }
     }
 
@@ -59,6 +68,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.3")
     implementation("androidx.activity:activity-compose:1.9.0")
+    implementation("androidx.fragment:fragment-ktx:1.8.1")
 
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")

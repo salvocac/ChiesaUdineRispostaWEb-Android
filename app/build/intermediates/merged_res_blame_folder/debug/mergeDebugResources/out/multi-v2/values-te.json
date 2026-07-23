@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.caccavo.chiesaudinerispostaweb.app-mergeDebugResources-54:/values-te/values-te.xml",
+            "outputFile": "com.caccavo.chiesaudinerispostaweb.app-mergeDebugResources-55:/values-te/values-te.xml",
             "map": [
                 {
                     "source": "/Users/salvatorecaccavo/.gradle/caches/8.13/transforms/ce5d968db3dc04044d0616225b832bf3/transformed/play-services-basement-18.1.0/res/values-te/values.xml",

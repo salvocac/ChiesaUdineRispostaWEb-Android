@@ -17,6 +17,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.shape.RoundedCornerShape
+import android.content.Context
+import android.content.ClipboardManager
+import android.content.ClipData
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.ChevronLeft
@@ -30,6 +33,8 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Stop
 import androidx.compose.material.icons.filled.Videocam
+import androidx.compose.material.icons.filled.ContentCopy
+import kotlinx.coroutines.delay
 import androidx.compose.material3.Button
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -81,6 +86,14 @@ fun BibleReaderScreen(
     var selectedIds by remember { mutableStateOf(setOf<String>()) }
     var isPreparingVideo by remember { mutableStateOf(false) }
     var videoStatus by remember { mutableStateOf<String?>(null) }
+    var didCopyTexts by remember { mutableStateOf(false) }
+
+    LaunchedEffect(didCopyTexts) {
+        if (didCopyTexts) {
+            delay(2000)
+            didCopyTexts = false
+        }
+    }
 
     val isFollowingAudio = payload.followsAudio && (audioManager.isSpeaking || audioManager.isPaused)
     val visibleVerses = if (isFollowingAudio) audioManager.currentReadingVerses else (overrideVerses ?: payload.verses)
@@ -249,13 +262,32 @@ fun BibleReaderScreen(
                         Spacer(Modifier.height(8.dp))
                         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                             Button(
+                                onClick = {
+                                    val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                                    val clip = ClipData.newPlainText("Versetti selezionati", selectedShareText())
+                                    clipboard.setPrimaryClip(clip)
+                                    didCopyTexts = true
+                                },
+                                enabled = selectedIds.isNotEmpty(),
+                                modifier = Modifier.weight(1f)
+                            ) {
+                                Icon(
+                                    if (didCopyTexts) Icons.Filled.CheckCircle else Icons.Filled.ContentCopy,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(18.dp)
+                                )
+                                Spacer(Modifier.width(6.dp))
+                                Text(if (didCopyTexts) "Copiato!" else "Copia")
+                            }
+
+                            Button(
                                 onClick = { shareSelectedVerses() },
                                 enabled = selectedIds.isNotEmpty(),
                                 modifier = Modifier.weight(1f)
                             ) {
                                 Icon(Icons.Filled.Share, contentDescription = null, modifier = Modifier.size(18.dp))
                                 Spacer(Modifier.width(6.dp))
-                                Text("Condividi (${selectedIds.size})")
+                                Text("Condividi")
                             }
 
                             if (payload.audioAvailable) {

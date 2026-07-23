@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.caccavo.chiesaudinerispostaweb"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    package="com.scdevelopment.chiesaudinerispostaweb"
+    android:versionCode="6"
+    android:versionName="1.0.5" >
 
     <uses-sdk
         android:minSdkVersion="29"
-        android:targetSdkVersion="34" />
+        android:targetSdkVersion="35" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
@@ -16,10 +16,10 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <permission
-        android:name="com.caccavo.chiesaudinerispostaweb.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:name="com.scdevelopment.chiesaudinerispostaweb.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.caccavo.chiesaudinerispostaweb.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+    <uses-permission android:name="com.scdevelopment.chiesaudinerispostaweb.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
         android:name="com.caccavo.chiesaudinerispostaweb.ChiesaApp"
@@ -31,7 +31,6 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/Theme.ChiesaUdineRispostaWeb" >
         <activity
             android:name="com.caccavo.chiesaudinerispostaweb.MainActivity"
@@ -54,7 +53,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.caccavo.chiesaudinerispostaweb.fileprovider"
+            android:authorities="com.scdevelopment.chiesaudinerispostaweb.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
@@ -72,7 +71,7 @@
 
         <provider
             android:name="androidx.startup.InitializationProvider"
-            android:authorities="com.caccavo.chiesaudinerispostaweb.androidx-startup"
+            android:authorities="com.scdevelopment.chiesaudinerispostaweb.androidx-startup"
             android:exported="false" >
             <meta-data
                 android:name="androidx.emoji2.text.EmojiCompatInitializer"

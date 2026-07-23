@@ -1,6 +1,7 @@
 package com.caccavo.chiesaudinerispostaweb.bible
 
 import android.app.Application
+import android.content.Context
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -12,8 +13,16 @@ import java.text.Normalizer
 class BibleViewModel(application: Application) : AndroidViewModel(application) {
 
     private val bibleManager = BibleManager.getInstance(application)
+    private val prefs = application.getSharedPreferences("bible_preferences", Context.MODE_PRIVATE)
 
-    var selectedTranslation by mutableStateOf(BibleTranslation.RIVEDUTA)
+    var selectedTranslation by mutableStateOf(
+        try {
+            val saved = prefs.getString("selectedBibleTranslation", null)
+            if (saved != null) BibleTranslation.valueOf(saved) else BibleTranslation.RIVEDUTA
+        } catch (e: Exception) {
+            BibleTranslation.RIVEDUTA
+        }
+    )
         private set
     var selectedBook by mutableStateOf("Genesi")
         private set
@@ -125,6 +134,7 @@ class BibleViewModel(application: Application) : AndroidViewModel(application) {
     fun selectTranslation(translation: BibleTranslation) {
         if (translation == selectedTranslation) return
         selectedTranslation = translation
+        prefs.edit().putString("selectedBibleTranslation", translation.name).apply()
         searchText = ""
         searchResultsCache = emptyList()
         didStartBibleLoad = false
