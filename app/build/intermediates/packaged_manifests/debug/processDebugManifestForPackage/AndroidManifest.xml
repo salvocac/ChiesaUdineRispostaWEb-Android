@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.scdevelopment.chiesaudinerispostaweb"
-    android:versionCode="6"
-    android:versionName="1.0.5" >
+    android:versionCode="7"
+    android:versionName="1.0.6" >
 
     <uses-sdk
         android:minSdkVersion="29"
@@ -31,6 +31,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/Theme.ChiesaUdineRispostaWeb" >
         <activity
             android:name="com.caccavo.chiesaudinerispostaweb.MainActivity"

@@ -151,9 +151,9 @@ object VerseVideoFactory {
         if (durationSeconds <= 0.0) return null
 
         val bitmap = renderCardBitmap(context, reference, body, background, bgImageResId, fontSizeScale, fontColor)
-        val rotatedBitmap = rotateBitmap180(bitmap)
+        val flippedBitmap = flipBitmapVertically(bitmap)
         val imageFile = File(context.cacheDir, "video-card-${System.currentTimeMillis()}.png")
-        FileOutputStream(imageFile).use { out -> rotatedBitmap.compress(Bitmap.CompressFormat.PNG, 100, out) }
+        FileOutputStream(imageFile).use { out -> flippedBitmap.compress(Bitmap.CompressFormat.PNG, 100, out) }
 
         val imageMediaItem = MediaItem.Builder()
             .setUri(imageFile.toURI().toString())
@@ -198,14 +198,14 @@ object VerseVideoFactory {
         }
     }
 
-    private fun rotateBitmap180(src: Bitmap): Bitmap {
+    private fun flipBitmapVertically(src: Bitmap): Bitmap {
         val matrix = Matrix().apply {
-            postRotate(180f)
+            postScale(1f, -1f)
         }
-        val rotated = Bitmap.createBitmap(src, 0, 0, src.width, src.height, matrix, true)
-        if (rotated != src) {
+        val flipped = Bitmap.createBitmap(src, 0, 0, src.width, src.height, matrix, true)
+        if (flipped != src) {
             src.recycle()
         }
-        return rotated
+        return flipped
     }
 }
