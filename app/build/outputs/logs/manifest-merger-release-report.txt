@@ -1,0 +1,452 @@
+-- Merging decision tree log ---
+provider#androidx.core.content.FileProvider
+INJECTED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:37:9-45:20
+	android:grantUriPermissions
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:41:13-47
+	android:authorities
+		INJECTED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:39:13-64
+	android:exported
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:40:13-37
+	android:name
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:38:13-62
+manifest
+ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:2:1-47:12
+INJECTED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:2:1-47:12
+INJECTED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:2:1-47:12
+INJECTED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:2:1-47:12
+MERGED from [com.google.android.play:review:2.0.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/e67b981e284420ad7c41e725a06de6f9/transformed/review-2.0.1/AndroidManifest.xml:2:1-14:12
+MERGED from [com.google.android.gms:play-services-tasks:18.0.2] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/58ae5d775e1891c6e334ec9763720133/transformed/play-services-tasks-18.0.2/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement:18.1.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/ce5d968db3dc04044d0616225b832bf3/transformed/play-services-basement-18.1.0/AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.fragment:fragment:1.8.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/35c6111c5c2cd101287649847fa64cfc/transformed/fragment-1.8.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.fragment:fragment-ktx:1.8.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/df278efd4c44fccc1c1b47b8e983e4ff/transformed/fragment-ktx-1.8.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.media3:media3-transformer:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/749c78f28bb351982ea47f840102f536/transformed/media3-transformer-1.3.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-effect:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/a31515860dae29fa095beb5096591d75/transformed/media3-effect-1.3.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-extractor:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/b0fb12eb88e3cfada726072bfee46df9/transformed/media3-extractor-1.3.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-muxer:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/f315e0a9273de123cb1982b8da809d22/transformed/media3-muxer-1.3.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-container:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/bee8f1e3517630c532297c52fddef3fa/transformed/media3-container-1.3.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-datasource:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/b6d3a8f62b16ed876db3dd56abccce4f/transformed/media3-datasource-1.3.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-decoder:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/9026f1b6bb23817c798f8f18d786710c/transformed/media3-decoder-1.3.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-database:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/11108cb3e6ef15467e92f27854419124/transformed/media3-database-1.3.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-common:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/33bd192c5429906d16dee28e339bc95d/transformed/media3-common-1.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media3:media3-exoplayer:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/a0a3281434b20a657ab9dde27304e498/transformed/media3-exoplayer-1.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-common:2.7.7] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/4341b30943099966f2867e1697ea0db3/transformed/navigation-common-2.7.7/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime:2.7.7] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/ee83981383b2e600e619d88ae7dddfd1/transformed/navigation-runtime-2.7.7/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.7] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/a839c2a4b4e97e1ccb73447ecd0caf4b/transformed/navigation-common-ktx-2.7.7/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.7] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/88eaa7d6f6aad350c2114ec68a6576a7/transformed/navigation-runtime-ktx-2.7.7/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-compose:2.7.7] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/b63a0cbe538e49ed6f2ed841a4960a4c/transformed/navigation-compose-2.7.7/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity:1.9.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/0a077352512ff899d7672102df0d0d86/transformed/activity-1.9.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-ktx:1.9.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/877dfd749850b4a684b8c5f58dd185b7/transformed/activity-ktx-1.9.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material3:material3-android:1.2.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/5b0fe099a3ace2b096451f0a1b57d08c/transformed/material3-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-compose:1.9.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/b2caacd73d59c6295e017559e1ffbd7e/transformed/activity-compose-1.9.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/9a93cae05fa68bf25b642623a42281d7/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/173a4acaac81032c86cc6a098cc9a8ad/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/e22d1bb320585004d20aa539d06a3587/transformed/savedstate-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/93ae58675e0a1ef26441a232873995c9/transformed/material-icons-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-extended-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/4f3e9dca15cb5b0423dc9c8835ee90b6/transformed/material-icons-extended-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/55b7794ef12bcaa7b25216ba1e942e67/transformed/material-ripple-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/8e03b023350964d2f250dadab92a0e8f/transformed/animation-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/04bfaeac52727d30e04af8b5490e8d03/transformed/animation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/c7910bf8db55ce7a05c7871a881bef29/transformed/foundation-layout-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/e56d53d489d0b313cfcd448885c5eb4a/transformed/foundation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/e9941b628753665fe16002293c1461a5/transformed/ui-unit-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/170b8fec28f385ec19a7e069ca494489/transformed/ui-geometry-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/516c86c088e93fbf40f3108c00809ec6/transformed/ui-util-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/e80654b710efa7e293b7e6f57b92dc64/transformed/ui-tooling-preview-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d21719193341b9168aaa6f9d3af35549/transformed/ui-graphics-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/42f79919db5796b3c95a480029538324/transformed/ui-text-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d2a7b3e6e9cbb11f18b8934466f232a9/transformed/emoji2-1.3.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/8eae0e536c4b329b49a3d3f70a123a5b/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/e64999fc4b7feb25ba60762d8545d17c/transformed/lifecycle-livedata-2.8.3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/4a33c29f0807a66d22d57f578ea7ec39/transformed/lifecycle-runtime-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/f4a248c5742bc3c880fad6685f0e05f0/transformed/lifecycle-viewmodel-2.8.3/AndroidManifest.xml:2:1-5:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/c275f7fc92da3372e37b8da12da424dc/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/42272f9f2b6137714bb3c4bcf6d0ce17/transformed/lifecycle-viewmodel-savedstate-2.8.3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/8735f99294065388ebf241e3f3e5970e/transformed/lifecycle-livedata-core-2.8.3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/8a79a63f1bbc4f31dc11a0976e8fae53/transformed/lifecycle-livedata-core-ktx-2.8.3/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/90ed05d2843f73606f9fe2375060162e/transformed/lifecycle-runtime-ktx-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/90bcb9105b20af87a755dde6896f2622/transformed/lifecycle-viewmodel-ktx-2.8.3/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/2ab4638b003bcf9e1a3abf6a58259b4d/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/5bb62143d036e841a7b5f31b8013ee16/transformed/ui-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/a805cd008214dafe9b05c0a32450e85e/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/72555f87c3b22dcc64b03ab748f6a980/transformed/autofill-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/5e753435a71c7b33b765a3b2535c9151/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.13.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d585acea97154980595781740eef3608/transformed/core-1.13.1/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/7aef34b663896eee5cb67c10ee7c1f49/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.core:core-ktx:1.13.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/b7b06a493653a6110943556772caa066/transformed/core-ktx-1.13.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/4919741bc92e10daf93f371d4d083d2d/transformed/runtime-saveable-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/9cf4a4846912b4f78a48b2c9db11d335/transformed/runtime-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/3723991ce2741b0f5aa015ad49bc26c3/transformed/annotation-experimental-1.4.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/812259de6d00906b4cc2a71c0230db5b/transformed/exifinterface-1.3.6/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/7dc4b26ad0d678804a42bcaec44e23db/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/7f17dc8e52f7845d2d84cef4db6feed6/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/545424add2ea24223bb86e0ad8cbce2b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/f8f0a85f15a3c8fdd99acb0037580270/transformed/tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/7f91e6e7587b1b299d767d7afd15a26e/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.play:core-common:2.0.2] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/2e5d9dca1603e86d93c8d10440b3601d/transformed/core-common-2.0.2/AndroidManifest.xml:2:1-21:12
+	package
+		INJECTED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:4:22-64
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:5:5-77
+	android:name
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:5:22-74
+uses-permission#android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK
+ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:6:5-92
+	android:name
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:6:22-89
+uses-permission#android.permission.POST_NOTIFICATIONS
+ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:7:5-77
+	android:name
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:7:22-74
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:8:5-81
+	android:name
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:8:22-78
+application
+ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:10:5-46:19
+INJECTED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:10:5-46:19
+MERGED from [com.google.android.play:review:2.0.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/e67b981e284420ad7c41e725a06de6f9/transformed/review-2.0.1/AndroidManifest.xml:11:5-12:19
+MERGED from [com.google.android.play:review:2.0.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/e67b981e284420ad7c41e725a06de6f9/transformed/review-2.0.1/AndroidManifest.xml:11:5-12:19
+MERGED from [com.google.android.gms:play-services-tasks:18.0.2] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/58ae5d775e1891c6e334ec9763720133/transformed/play-services-tasks-18.0.2/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.0.2] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/58ae5d775e1891c6e334ec9763720133/transformed/play-services-tasks-18.0.2/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.1.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/ce5d968db3dc04044d0616225b832bf3/transformed/play-services-basement-18.1.0/AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:18.1.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/ce5d968db3dc04044d0616225b832bf3/transformed/play-services-basement-18.1.0/AndroidManifest.xml:20:5-24:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d2a7b3e6e9cbb11f18b8934466f232a9/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d2a7b3e6e9cbb11f18b8934466f232a9/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/8eae0e536c4b329b49a3d3f70a123a5b/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/8eae0e536c4b329b49a3d3f70a123a5b/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.13.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d585acea97154980595781740eef3608/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.13.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d585acea97154980595781740eef3608/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/7f17dc8e52f7845d2d84cef4db6feed6/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/7f17dc8e52f7845d2d84cef4db6feed6/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/545424add2ea24223bb86e0ad8cbce2b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/545424add2ea24223bb86e0ad8cbce2b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [com.google.android.play:core-common:2.0.2] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/2e5d9dca1603e86d93c8d10440b3601d/transformed/core-common-2.0.2/AndroidManifest.xml:11:5-19:19
+MERGED from [com.google.android.play:core-common:2.0.2] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/2e5d9dca1603e86d93c8d10440b3601d/transformed/core-common-2.0.2/AndroidManifest.xml:11:5-19:19
+	android:extractNativeLibs
+		INJECTED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.13.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d585acea97154980595781740eef3608/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:16:9-35
+	android:label
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:14:9-41
+	android:roundIcon
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:15:9-54
+	android:icon
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:13:9-43
+	android:allowBackup
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:12:9-35
+	android:theme
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:17:9-60
+	android:name
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:11:9-34
+activity#com.caccavo.chiesaudinerispostaweb.MainActivity
+ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:19:9-27:20
+	android:exported
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:21:13-36
+	android:theme
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:22:13-64
+	android:name
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:20:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:23:13-26:29
+action#android.intent.action.MAIN
+ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:24:17-69
+	android:name
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:24:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:25:17-77
+	android:name
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:25:27-74
+receiver#com.caccavo.chiesaudinerispostaweb.notifications.DailyVerseReminderReceiver
+ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:29:9-35:20
+	android:exported
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:30:13-69
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED
+ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:32:13-34:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:33:17-79
+	android:name
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:33:25-76
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:42:13-44:54
+	android:resource
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:44:17-51
+	android:name
+		ADDED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml:43:17-67
+uses-sdk
+INJECTED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml
+MERGED from [com.google.android.play:review:2.0.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/e67b981e284420ad7c41e725a06de6f9/transformed/review-2.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.play:review:2.0.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/e67b981e284420ad7c41e725a06de6f9/transformed/review-2.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.gms:play-services-tasks:18.0.2] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/58ae5d775e1891c6e334ec9763720133/transformed/play-services-tasks-18.0.2/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.0.2] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/58ae5d775e1891c6e334ec9763720133/transformed/play-services-tasks-18.0.2/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.1.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/ce5d968db3dc04044d0616225b832bf3/transformed/play-services-basement-18.1.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.1.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/ce5d968db3dc04044d0616225b832bf3/transformed/play-services-basement-18.1.0/AndroidManifest.xml:18:5-43
+MERGED from [androidx.fragment:fragment:1.8.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/35c6111c5c2cd101287649847fa64cfc/transformed/fragment-1.8.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment:1.8.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/35c6111c5c2cd101287649847fa64cfc/transformed/fragment-1.8.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.8.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/df278efd4c44fccc1c1b47b8e983e4ff/transformed/fragment-ktx-1.8.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.8.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/df278efd4c44fccc1c1b47b8e983e4ff/transformed/fragment-ktx-1.8.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.media3:media3-transformer:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/749c78f28bb351982ea47f840102f536/transformed/media3-transformer-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-transformer:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/749c78f28bb351982ea47f840102f536/transformed/media3-transformer-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-effect:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/a31515860dae29fa095beb5096591d75/transformed/media3-effect-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-effect:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/a31515860dae29fa095beb5096591d75/transformed/media3-effect-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-extractor:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/b0fb12eb88e3cfada726072bfee46df9/transformed/media3-extractor-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-extractor:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/b0fb12eb88e3cfada726072bfee46df9/transformed/media3-extractor-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-muxer:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/f315e0a9273de123cb1982b8da809d22/transformed/media3-muxer-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-muxer:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/f315e0a9273de123cb1982b8da809d22/transformed/media3-muxer-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-container:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/bee8f1e3517630c532297c52fddef3fa/transformed/media3-container-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-container:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/bee8f1e3517630c532297c52fddef3fa/transformed/media3-container-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-datasource:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/b6d3a8f62b16ed876db3dd56abccce4f/transformed/media3-datasource-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-datasource:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/b6d3a8f62b16ed876db3dd56abccce4f/transformed/media3-datasource-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-decoder:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/9026f1b6bb23817c798f8f18d786710c/transformed/media3-decoder-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-decoder:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/9026f1b6bb23817c798f8f18d786710c/transformed/media3-decoder-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-database:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/11108cb3e6ef15467e92f27854419124/transformed/media3-database-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-database:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/11108cb3e6ef15467e92f27854419124/transformed/media3-database-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-common:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/33bd192c5429906d16dee28e339bc95d/transformed/media3-common-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-common:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/33bd192c5429906d16dee28e339bc95d/transformed/media3-common-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/a0a3281434b20a657ab9dde27304e498/transformed/media3-exoplayer-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/a0a3281434b20a657ab9dde27304e498/transformed/media3-exoplayer-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.7.7] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/4341b30943099966f2867e1697ea0db3/transformed/navigation-common-2.7.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.7.7] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/4341b30943099966f2867e1697ea0db3/transformed/navigation-common-2.7.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.7.7] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/ee83981383b2e600e619d88ae7dddfd1/transformed/navigation-runtime-2.7.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.7.7] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/ee83981383b2e600e619d88ae7dddfd1/transformed/navigation-runtime-2.7.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.7] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/a839c2a4b4e97e1ccb73447ecd0caf4b/transformed/navigation-common-ktx-2.7.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.7] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/a839c2a4b4e97e1ccb73447ecd0caf4b/transformed/navigation-common-ktx-2.7.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.7] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/88eaa7d6f6aad350c2114ec68a6576a7/transformed/navigation-runtime-ktx-2.7.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.7] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/88eaa7d6f6aad350c2114ec68a6576a7/transformed/navigation-runtime-ktx-2.7.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.7.7] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/b63a0cbe538e49ed6f2ed841a4960a4c/transformed/navigation-compose-2.7.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.7.7] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/b63a0cbe538e49ed6f2ed841a4960a4c/transformed/navigation-compose-2.7.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity:1.9.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/0a077352512ff899d7672102df0d0d86/transformed/activity-1.9.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.9.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/0a077352512ff899d7672102df0d0d86/transformed/activity-1.9.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/877dfd749850b4a684b8c5f58dd185b7/transformed/activity-ktx-1.9.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/877dfd749850b4a684b8c5f58dd185b7/transformed/activity-ktx-1.9.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material3:material3-android:1.2.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/5b0fe099a3ace2b096451f0a1b57d08c/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.2.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/5b0fe099a3ace2b096451f0a1b57d08c/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-compose:1.9.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/b2caacd73d59c6295e017559e1ffbd7e/transformed/activity-compose-1.9.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.9.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/b2caacd73d59c6295e017559e1ffbd7e/transformed/activity-compose-1.9.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/9a93cae05fa68bf25b642623a42281d7/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/9a93cae05fa68bf25b642623a42281d7/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/173a4acaac81032c86cc6a098cc9a8ad/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/173a4acaac81032c86cc6a098cc9a8ad/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/e22d1bb320585004d20aa539d06a3587/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/e22d1bb320585004d20aa539d06a3587/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/93ae58675e0a1ef26441a232873995c9/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/93ae58675e0a1ef26441a232873995c9/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/4f3e9dca15cb5b0423dc9c8835ee90b6/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/4f3e9dca15cb5b0423dc9c8835ee90b6/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/55b7794ef12bcaa7b25216ba1e942e67/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/55b7794ef12bcaa7b25216ba1e942e67/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/8e03b023350964d2f250dadab92a0e8f/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/8e03b023350964d2f250dadab92a0e8f/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/04bfaeac52727d30e04af8b5490e8d03/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/04bfaeac52727d30e04af8b5490e8d03/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/c7910bf8db55ce7a05c7871a881bef29/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/c7910bf8db55ce7a05c7871a881bef29/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/e56d53d489d0b313cfcd448885c5eb4a/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/e56d53d489d0b313cfcd448885c5eb4a/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/e9941b628753665fe16002293c1461a5/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/e9941b628753665fe16002293c1461a5/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/170b8fec28f385ec19a7e069ca494489/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/170b8fec28f385ec19a7e069ca494489/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/516c86c088e93fbf40f3108c00809ec6/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/516c86c088e93fbf40f3108c00809ec6/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/e80654b710efa7e293b7e6f57b92dc64/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/e80654b710efa7e293b7e6f57b92dc64/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d21719193341b9168aaa6f9d3af35549/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d21719193341b9168aaa6f9d3af35549/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/42f79919db5796b3c95a480029538324/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/42f79919db5796b3c95a480029538324/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d2a7b3e6e9cbb11f18b8934466f232a9/transformed/emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d2a7b3e6e9cbb11f18b8934466f232a9/transformed/emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/8eae0e536c4b329b49a3d3f70a123a5b/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/8eae0e536c4b329b49a3d3f70a123a5b/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/e64999fc4b7feb25ba60762d8545d17c/transformed/lifecycle-livedata-2.8.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/e64999fc4b7feb25ba60762d8545d17c/transformed/lifecycle-livedata-2.8.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/4a33c29f0807a66d22d57f578ea7ec39/transformed/lifecycle-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/4a33c29f0807a66d22d57f578ea7ec39/transformed/lifecycle-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/f4a248c5742bc3c880fad6685f0e05f0/transformed/lifecycle-viewmodel-2.8.3/AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/f4a248c5742bc3c880fad6685f0e05f0/transformed/lifecycle-viewmodel-2.8.3/AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/c275f7fc92da3372e37b8da12da424dc/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/c275f7fc92da3372e37b8da12da424dc/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/42272f9f2b6137714bb3c4bcf6d0ce17/transformed/lifecycle-viewmodel-savedstate-2.8.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/42272f9f2b6137714bb3c4bcf6d0ce17/transformed/lifecycle-viewmodel-savedstate-2.8.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/8735f99294065388ebf241e3f3e5970e/transformed/lifecycle-livedata-core-2.8.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/8735f99294065388ebf241e3f3e5970e/transformed/lifecycle-livedata-core-2.8.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/8a79a63f1bbc4f31dc11a0976e8fae53/transformed/lifecycle-livedata-core-ktx-2.8.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/8a79a63f1bbc4f31dc11a0976e8fae53/transformed/lifecycle-livedata-core-ktx-2.8.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/90ed05d2843f73606f9fe2375060162e/transformed/lifecycle-runtime-ktx-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/90ed05d2843f73606f9fe2375060162e/transformed/lifecycle-runtime-ktx-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/90bcb9105b20af87a755dde6896f2622/transformed/lifecycle-viewmodel-ktx-2.8.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/90bcb9105b20af87a755dde6896f2622/transformed/lifecycle-viewmodel-ktx-2.8.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/2ab4638b003bcf9e1a3abf6a58259b4d/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/2ab4638b003bcf9e1a3abf6a58259b4d/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/5bb62143d036e841a7b5f31b8013ee16/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/5bb62143d036e841a7b5f31b8013ee16/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/a805cd008214dafe9b05c0a32450e85e/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/a805cd008214dafe9b05c0a32450e85e/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/72555f87c3b22dcc64b03ab748f6a980/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/72555f87c3b22dcc64b03ab748f6a980/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/5e753435a71c7b33b765a3b2535c9151/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/5e753435a71c7b33b765a3b2535c9151/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d585acea97154980595781740eef3608/transformed/core-1.13.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d585acea97154980595781740eef3608/transformed/core-1.13.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/7aef34b663896eee5cb67c10ee7c1f49/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/7aef34b663896eee5cb67c10ee7c1f49/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.core:core-ktx:1.13.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/b7b06a493653a6110943556772caa066/transformed/core-ktx-1.13.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.13.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/b7b06a493653a6110943556772caa066/transformed/core-ktx-1.13.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/4919741bc92e10daf93f371d4d083d2d/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/4919741bc92e10daf93f371d4d083d2d/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/9cf4a4846912b4f78a48b2c9db11d335/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.6.8] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/9cf4a4846912b4f78a48b2c9db11d335/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/3723991ce2741b0f5aa015ad49bc26c3/transformed/annotation-experimental-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/3723991ce2741b0f5aa015ad49bc26c3/transformed/annotation-experimental-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/812259de6d00906b4cc2a71c0230db5b/transformed/exifinterface-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/812259de6d00906b4cc2a71c0230db5b/transformed/exifinterface-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/7dc4b26ad0d678804a42bcaec44e23db/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/7dc4b26ad0d678804a42bcaec44e23db/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/7f17dc8e52f7845d2d84cef4db6feed6/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/7f17dc8e52f7845d2d84cef4db6feed6/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/545424add2ea24223bb86e0ad8cbce2b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/545424add2ea24223bb86e0ad8cbce2b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/f8f0a85f15a3c8fdd99acb0037580270/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/f8f0a85f15a3c8fdd99acb0037580270/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/7f91e6e7587b1b299d767d7afd15a26e/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/7f91e6e7587b1b299d767d7afd15a26e/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.play:core-common:2.0.2] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/2e5d9dca1603e86d93c8d10440b3601d/transformed/core-common-2.0.2/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.play:core-common:2.0.2] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/2e5d9dca1603e86d93c8d10440b3601d/transformed/core-common-2.0.2/AndroidManifest.xml:7:5-9:41
+	android:targetSdkVersion
+		INJECTED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/salvatorecaccavo/StudioProjects/ChiesaUdineRispostaWEb-Android/app/src/main/AndroidManifest.xml
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.1.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/ce5d968db3dc04044d0616225b832bf3/transformed/play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.1.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/ce5d968db3dc04044d0616225b832bf3/transformed/play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.1.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/ce5d968db3dc04044d0616225b832bf3/transformed/play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [androidx.media3:media3-common:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/33bd192c5429906d16dee28e339bc95d/transformed/media3-common-1.3.1/AndroidManifest.xml:22:5-79
+MERGED from [androidx.media3:media3-exoplayer:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/a0a3281434b20a657ab9dde27304e498/transformed/media3-exoplayer-1.3.1/AndroidManifest.xml:22:5-79
+MERGED from [androidx.media3:media3-exoplayer:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/a0a3281434b20a657ab9dde27304e498/transformed/media3-exoplayer-1.3.1/AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from [androidx.media3:media3-common:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/33bd192c5429906d16dee28e339bc95d/transformed/media3-common-1.3.1/AndroidManifest.xml:22:22-76
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d2a7b3e6e9cbb11f18b8934466f232a9/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/8eae0e536c4b329b49a3d3f70a123a5b/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/8eae0e536c4b329b49a3d3f70a123a5b/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/545424add2ea24223bb86e0ad8cbce2b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/545424add2ea24223bb86e0ad8cbce2b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d2a7b3e6e9cbb11f18b8934466f232a9/transformed/emoji2-1.3.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d2a7b3e6e9cbb11f18b8934466f232a9/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d2a7b3e6e9cbb11f18b8934466f232a9/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d2a7b3e6e9cbb11f18b8934466f232a9/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d2a7b3e6e9cbb11f18b8934466f232a9/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d2a7b3e6e9cbb11f18b8934466f232a9/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d2a7b3e6e9cbb11f18b8934466f232a9/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/8eae0e536c4b329b49a3d3f70a123a5b/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/8eae0e536c4b329b49a3d3f70a123a5b/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.3] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/8eae0e536c4b329b49a3d3f70a123a5b/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:30:17-78
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d585acea97154980595781740eef3608/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d585acea97154980595781740eef3608/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d585acea97154980595781740eef3608/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+permission#com.scdevelopment.chiesaudinerispostaweb.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d585acea97154980595781740eef3608/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d585acea97154980595781740eef3608/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d585acea97154980595781740eef3608/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d585acea97154980595781740eef3608/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d585acea97154980595781740eef3608/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+uses-permission#com.scdevelopment.chiesaudinerispostaweb.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d585acea97154980595781740eef3608/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/d585acea97154980595781740eef3608/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/151302d9a08b57a63d267ee3f5b696f1/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+activity#com.google.android.play.core.common.PlayCoreDialogWrapperActivity
+ADDED from [com.google.android.play:core-common:2.0.2] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/2e5d9dca1603e86d93c8d10440b3601d/transformed/core-common-2.0.2/AndroidManifest.xml:14:9-18:65
+	android:stateNotNeeded
+		ADDED from [com.google.android.play:core-common:2.0.2] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/2e5d9dca1603e86d93c8d10440b3601d/transformed/core-common-2.0.2/AndroidManifest.xml:17:13-42
+	android:exported
+		ADDED from [com.google.android.play:core-common:2.0.2] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/2e5d9dca1603e86d93c8d10440b3601d/transformed/core-common-2.0.2/AndroidManifest.xml:16:13-37
+	android:theme
+		ADDED from [com.google.android.play:core-common:2.0.2] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/2e5d9dca1603e86d93c8d10440b3601d/transformed/core-common-2.0.2/AndroidManifest.xml:18:13-62
+	android:name
+		ADDED from [com.google.android.play:core-common:2.0.2] /Users/salvatorecaccavo/.gradle/caches/8.13/transforms/2e5d9dca1603e86d93c8d10440b3601d/transformed/core-common-2.0.2/AndroidManifest.xml:15:13-93

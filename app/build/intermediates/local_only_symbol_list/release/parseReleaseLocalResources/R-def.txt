@@ -1,0 +1,17 @@
+R_DEF: Internal format may change without notice
+local
+color chiesa_accent
+color chiesa_background_dark
+color chiesa_background_light
+color ic_launcher_background
+drawable facebook
+drawable ic_notification_book
+drawable instagram
+drawable logo
+drawable youtube
+mipmap ic_launcher
+mipmap ic_launcher_foreground
+mipmap ic_launcher_round
+string app_name
+style Theme.ChiesaUdineRispostaWeb
+xml file_paths
